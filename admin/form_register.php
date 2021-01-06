@@ -92,8 +92,9 @@
         <div class="card-header">
             <h3>Register</h3>
         </div>
-        <div class="card-body">
-            <form action="register.php" method="post" onsubmit="return checkPassword(this);">
+            <div class="card-body">
+                <form action="register.php" method="post" onsubmit="return checkPassword(this);">
+                
                 <div class="form-group">
                     <label for="inputUsername">Username</label>
                     <input class="form-control" type="text" id="inputUsername" name="username" require>
@@ -122,7 +123,22 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <div class="form-radio">
+                            <label for="gender" class="radio-label">Daftar Sebagai: </label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" id="male" checked>
+                                <label for="male">Guru</label>
+                                <span class="check"></span>
+                            </div>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" id="female">
+                                <label for="female">Murid</label>
+                                <span class="check"></span>
+                            </div>
+                        </div>
+
+                <br>
+                <button type="submit" class="btn btn-primary">Register</button>
                 <!-- <table class="center">
                     <tr>
                         <td>Username</td>

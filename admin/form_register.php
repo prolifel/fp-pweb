@@ -38,7 +38,71 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        /* form {
+            width: 60%;
+            margin: 60px auto;
+            background: #efefef;
+            padding: 60px 120px 80px 120px;
+            text-align: center;
+            -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+        } */
+        .form-reg {
+            display: block;
+            position: relative;
+            margin: 40px 0px;
+        }
+        .label-txt {
+            position: absolute;
+            top: -1.6em;
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: .8em;
+            letter-spacing: 1px;
+            color: rgb(120,120,120);
+            transition: ease .3s;
+        }
+        .input {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .line-box {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background: #BCBCBC;
+        }
+
+        .line {
+        position: absolute;
+            width: 0%;
+            height: 2px;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #8BC34A;
+            transition: ease .6s;
+        }
+
+        .input:focus + .line-box .line {
+            width: 100%;
+        }
+
+        .label-active {
+            top: -3em;
+        }
+
+        button:hover {
+            background: #8BC34A;
+            /* color: #ffffff; */
+        }
     
+            
     </style>
     <script>
         // Function to check Whether both passwords 
@@ -92,37 +156,56 @@
         <div class="card-header">
             <h3>Register</h3>
         </div>
-        <div class="card-body">
-            <form action="register.php" method="post" onsubmit="return checkPassword(this);">
-                <div class="form-group">
-                    <label for="inputUsername">Username</label>
-                    <input class="form-control" type="text" id="inputUsername" name="username" require>
-                </div>
-                <div class="form-group">
-                    <label for="inputUsername">Nama</label>
-                    <input class="form-control" type="text" id="inputUsername" name="name" require>
-                </div>
-                <div class="form-group">
-                    <label for="inputUsername">Password</label>
-                    <input class="form-control" type="password" id="inputPassword" name="password1" require>
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="showPassword" onclick="showHidePassword()">
-                            <label class="custom-control-label" for="showPassword">Show</label>
-                        </div>
+            <div class="card-body">
+                <form action="register.php" method="post" onsubmit="return checkPassword(this);">
+                
+                
+                <label class="form-reg">
+                    <p class="label-txt">Email</p>
+                    <input type="text" class="input" require name="email" id="inputEmail" >
+                    <div class="line-box">
+                        <div class="line"></div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputUsername">Confirm Paswsord</label>
-                    <input class="form-control" type="password" id="inputPassword2" name="password2" require>
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="showPassword2" onclick="showHidePassword2()">
-                            <label class="custom-control-label" for="showPassword2">Show</label>
-                        </div>
+                </label>
+                <label class="form-reg">
+                    <p class="label-txt">Username</p>
+                    <input type="text" class="input" require name="username" id="inputUsername">
+                    <div class="line-box">
+                        <div class="line"></div>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                </label>
+                
+                <label class="form-reg">
+                    <p class="label-txt">Password</p>
+                    <input type="password" class="input" id="inputPassword" name="password1" require>
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                </label>
+                <label class="form-reg">
+                    <p class="label-txt">Confirm Password</p>
+                    <input type="password" class="input" id="inputPassword2" name="password2" require>
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                </label>
+            
+                <div class="form-radio">
+                            <label for="gender" class="radio-label">Daftar Sebagai: </label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" id="guru" checked>
+                                <label for="guru">Guru</label>
+                                <span class="check"></span>
+                            </div>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" id="murid">
+                                <label for="murid">Murid</label>
+                                <span class="check"></span>
+                            </div>
+                        </div>
+
+                <br>
+                <button type="submit" class="btn">Register</button>
                 <!-- <table class="center">
                     <tr>
                         <td>Username</td>

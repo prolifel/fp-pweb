@@ -13,11 +13,13 @@
 * Pilihan mendaftar sebagai guru / siswa
 ------------------------------------------------------------------------
 ### Halaman Home Guru
-* List Kelas
-### Halaman Kelas
+* List Mata Pelajaran
+### Halaman Mata Pelajaran
 * List Nama Siswa ada tombol input nilai
 ### Halaman Input Nilai
 * Mengisi Input Nilai Tugas 1, Tugas 2, UTS, UAS
+* Upload Document Rapot
 --------------------------------------------------------------------------
 ### Halaman Home Siswa
 * List Mata Pelajaran dan Nilai
+* Tombol Download PDF Rapot

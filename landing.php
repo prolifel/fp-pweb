@@ -104,7 +104,7 @@
         .navbar-toggler span:nth-child(3) {
             transform: translate(0%, 0%) rotate(0deg) ;
         }
-    
+        
     </style>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
@@ -131,20 +131,22 @@
             </ul>
             <!-- dikanan -->
             <form class="form-inline my-2 my-lg-0">
-                <!-- <a class="btn btn-primary my-2 my-sm-0 mx-4" type="button" href="./admin/form_admin.php">Login</a> -->
+                <a class="btn btn-primary my-2 my-sm-0 mx-4" type="button" href="./admin/form_admin.php">Login</a>
                 <a class="btn btn-light my-2 my-sm-0" type="button" href="./admin/form_register.php">Register</a>
             </form>
         </div>
     </nav>
 
-    <main role="main" class="container">
-        <div class="jumbotron bg-image">
-            <h1>buat login page nanti</h1>
-            <p class="lead">lgin page.exe</p>
+    
+        <div class="d-flex justify-content-center">
+            <?php
+            include './admin/form_admin.php';
+            ?>
+            <!-- <p class="lead">lgin page.exe</p> -->
             <!-- <a class="btn btn-lg btn-primary" href="../components/navbar/" role="button">View navbar docs &raquo;</a> -->
         </div>
         
-    </main>
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
     <script src="./js/bootstrap.bundle.min.js"></script>

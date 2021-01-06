@@ -38,31 +38,62 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-    
+        .login-content {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-right: 300px;
+            margin-top: 5%;
+            margin-left: 300px;
+            margin-bottom: auto;
+            background-color: rgba(255,255,255, 0.8);
+            border-radius: 30px;
+            box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2), 5px 6px 20px rgba(0, 0, 0, 0.19);
+            padding-left: 4%;
+            padding-right: 4%;
+            padding-bottom: 3%;
+            padding-top: 3%;
+        }
     </style>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Pemrograman Web</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="../landing.php">e-Rapor</a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">   
+            <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
+        </span> -->
+        <a class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span> </span>
+            <span> </span>
+            <span> </span>
+        </a>
+        <!-- <span class="navbar-toggler-icon top-bar"></span>
+        <span class="navbar-toggler-icon middle-bar"></span>
+        <span class="navbar-toggler-icon bottom-bar"></span> -->
+        <!-- </button> -->
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             
             </ul>
             <!-- dikanan -->
+            <form class="form-inline my-2 my-lg-0">
+                <a class="btn btn-primary my-2 my-sm-0 mx-4" type="button" href="./admin/form_admin.php">Login</a>
+                <a class="btn btn-light my-2 my-sm-0" type="button" href="./admin/form_register.php">Register</a>
+            </form>
         </div>
     </nav>
 
-    <main role="main" class="card mx-auto" style="width: 20rem;">
-        <div class="card-header">
-            <h3>Login</h3>
-        </div>
-        <div class="card-body">
+    <!-- <main role="main" class="card mx-auto" style="width: 20rem;"> -->
+        
+        <div class="login-content" >
+        
             <form action="login.php" method="post">
+            <div class="card-header">
+            <h2>Login</h2>
+            </div>
                 <div class="form-group">
                     <label for="inputUsername">Email</label>
                     <input class="form-control" type="text" id="inputUsername" name="email">
@@ -110,7 +141,7 @@
                 </table> -->
             </form>
         </div>
-    </main>
+    <!-- </main> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
     <script src="../js/bootstrap.bundle.min.js"></script>

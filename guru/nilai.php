@@ -63,11 +63,12 @@
     <h1 class="display-2 text-center">Input Nilai</h1>
     <main role="main" class="container">
         <?php
-            isset($_GET){
+            $matkul = null;
+            if(isset($_GET)){
                 $matkul = $_GET['id'];
             }
         ?>
-        <h3 class="display-4 text-center"><?php echo $matkul?></h3>
+        <h3 class="display-4 text-center"><?php echo $matkul;?></h3>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>

@@ -2,11 +2,37 @@
     include "../koneksi.php";
     $username=$_POST['username'];
     $password=md5($_POST['password']);
-    $query=mysqli_query($koneksi,"select * from admin where username='$username' and password='$password'");
+    $role=$_POST['role'];
+    $query=mysqli_query($koneksi,"select * from users where username='$username' and password='$password' and role='$role'");
     $cek=mysqli_num_rows($query);
     
     if($cek){
-        $_SESSION['username']=$username; 
+        switch ($role) {
+            case "admin":
+                $_SESSION['admin_login']=$username; 
+                $loginMsg="$username sukses login";
+                // echo("Admin berhasil");
+                // TODO: Header ke home admin
+                header("refresh:3;home.php");
+                break;
+            case "guru":
+                $_SESSION['guru_login']=$username; 
+                $loginMsg="$username sukses login";
+                // echo("Guru berhasil");
+                // TODO: Header ke home guru
+                header("refresh:3;home.php");
+                break;
+            case "murid":
+                $_SESSION['user_login']=$username; 
+                $loginMsg="$username sukses login";
+                // echo("Murid berhasil");
+                // TODO: Header ke home murid
+                header("refresh:3;home.php");
+                break;
+            default:
+                $errorMsg[]="Email, password, atau role salah";
+                break;
+        }
         ?>
         <script>
             window.location = 'home.php'

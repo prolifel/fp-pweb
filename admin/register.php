@@ -10,8 +10,11 @@
 
         $name = stripslashes($_REQUEST['name']);
         $name = mysqli_real_escape_string($koneksi,$name);
+
+        $role = stripslashes($_REQUEST['role']);
+        $role = mysqli_real_escape_string($koneksi,$role);
         
-        $query = "INSERT into `admin` (id, nama, username, password) VALUES (NULL, '$name', '$username', '".md5($password)."')";
+        $query = "INSERT into `users` (id, role, nama, username, password) VALUES (NULL, '$role', '$name', '$username', '".md5($password)."')";
         $result = mysqli_query($koneksi,$query);
     
         if($result){

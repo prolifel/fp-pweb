@@ -77,6 +77,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="innputRole">Login Sebagai</label>
+                </div>
                 <button type="submit" class="btn btn-primary">Login</button>
                 <!-- <table class="center">
                     <tr>

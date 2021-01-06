@@ -90,7 +90,7 @@
         
         <div class="login-content" >
         
-            <form action="login.php" method="post">
+            <form action="./admin/login.php" method="post">
             <div class="card-header">
             <h2>Login</h2>
             </div>

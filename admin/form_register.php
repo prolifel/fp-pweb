@@ -60,7 +60,7 @@
             font-family: sans-serif;
             font-size: .8em;
             letter-spacing: 1px;
-            color: rgb(120,120,120);
+            color: rgb(0,0,0);
             transition: ease .3s;
         }
         .input {
@@ -102,7 +102,22 @@
             /* color: #ffffff; */
         }
     
-            
+        .login-content {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-right: 300px;
+            margin-top: 5%;
+            margin-left: 300px;
+            margin-bottom: auto;
+            background-color: rgba(50,205,50, 0.3);
+            border-radius: 30px;
+            box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2), 5px 6px 20px rgba(0, 0, 0, 0.19);
+            padding-left: 4%;
+            padding-right: 4%;
+            padding-bottom: 3%;
+            padding-top: 3%;
+        } 
     </style>
     <script>
         // Function to check Whether both passwords 
@@ -166,12 +181,13 @@
         </div>
     </nav>
 
-    <main role="main" class="card mx-auto" style="width: 20rem;">
-        <div class="card-header">
-            <h3>Register</h3>
-        </div>
-            <div class="card-body">
+        <div class="d-flex justify-content-center">
+        <div class="login-content" >
+            
                 <form action="register.php" method="post" onsubmit="return checkPassword(this);">
+                <div class="card-header">
+                    <h3>Register</h3>
+                </div>
                 <label class="form-reg">
                     <p class="label-txt">Email</p>
                     <input type="text" class="input" require name="email" id="inputEmail" >
@@ -218,7 +234,7 @@
                     </div>
                 </div>
                 <br>
-                <button type="submit" class="btn">Register</button>
+                <button type="submit" class="btn btn-outline-warning">Register</button>
                 <!-- <table class="center">
                     <tr>
                         <td>Username</td>
@@ -235,7 +251,7 @@
                 </table> -->
             </form>
         </div>
-    </main>
+        </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
     <script src="../js/bootstrap.bundle.min.js"></script>

@@ -1,42 +1,33 @@
 <?php session_start();
     require('../koneksi.php');
     
-    if (isset($_REQUEST['username'])){
-        $username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($koneksi,$username); 
+    $nama = stripslashes($_REQUEST['nama']);
+    $nama = mysqli_real_escape_string($koneksi,$nama); 
 
-        $password = stripslashes($_REQUEST['password1']);
-        $password = mysqli_real_escape_string($koneksi,$password);
+    $password = stripslashes($_REQUEST['password1']);
+    $password = mysqli_real_escape_string($koneksi,$password);
 
-        $name = stripslashes($_REQUEST['name']);
-        $name = mysqli_real_escape_string($koneksi,$name);
+    $role = stripslashes($_REQUEST['role']);
+    $role = mysqli_real_escape_string($koneksi,$role);
 
-        $role = stripslashes($_REQUEST['role']);
-        $role = mysqli_real_escape_string($koneksi,$role);
-        
-        $query = "INSERT into `users` (id, role, nama, username, password) VALUES (NULL, '$role', '$name', '$username', '".md5($password)."')";
-        $result = mysqli_query($koneksi,$query);
+    $email = stripslashes($_REQUEST['email']);
+    $email = mysqli_real_escape_string($koneksi,$email);
     
-        if($result){
-            $_SESSION['username'] = $username;
-            ?>
-                <script>
-                    window.location = 'home.php'
-                </script>
-            <?php
-            exit();
-        }else{
-            ?>
-                <script>
-                    alert("Gagal mendaftar. Silakan coba lagi");
-                </script>
-            <?php
-        }
+    $query = "INSERT into `users` (id, role, email, nama, username, password) VALUES (NULL, '$role', '$email', '$nama', NULL, '".md5($password)."')";
+    $result = mysqli_query($koneksi,$query);
+
+    if($result){
+        $_SESSION['role'] = $role;
+        ?>
+            <script>
+                window.location = 'home.php'
+            </script>
+        <?php
+        exit();
     }else{
         ?>
             <script>
-                alert("Username tidak dapat ditemukan. Silakan mendaftar kembali");
-                window.location = 'index.php'
+                alert("Gagal mendaftar. Silakan coba lagi");
             </script>
         <?php
     }

@@ -1,9 +1,9 @@
 <?php session_start();
     include "../koneksi.php";
-    $username=$_POST['username'];
+    $email=$_POST['email'];
     $password=md5($_POST['password']);
     $role=$_POST['role'];
-    $query=mysqli_query($koneksi,"select * from users where username='$username' and password='$password' and role='$role'");
+    $query=mysqli_query($koneksi,"select * from users where email='$email' and password='$password' and role='$role'");
     $cek=mysqli_num_rows($query);
     
     if($cek){
@@ -44,7 +44,7 @@
         ?>
         <script>
             alert("Username atau password salah. Silakan login kembali");
-            window.location = 'form_admin.php'
+            // window.location = 'form_admin.php'
         </script>
         <?php
     }

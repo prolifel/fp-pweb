@@ -158,8 +158,6 @@
         </div>
             <div class="card-body">
                 <form action="register.php" method="post" onsubmit="return checkPassword(this);">
-                
-                
                 <label class="form-reg">
                     <p class="label-txt">Email</p>
                     <input type="text" class="input" require name="email" id="inputEmail" >
@@ -168,8 +166,8 @@
                     </div>
                 </label>
                 <label class="form-reg">
-                    <p class="label-txt">Username</p>
-                    <input type="text" class="input" require name="username" id="inputUsername">
+                    <p class="label-txt">Nama Lengkap</p>
+                    <input type="text" class="input" require name="nama" id="inputUsername">
                     <div class="line-box">
                         <div class="line"></div>
                     </div>
@@ -189,21 +187,22 @@
                         <div class="line"></div>
                     </div>
                 </label>
-            
-                <div class="form-radio">
-                            <label for="gender" class="radio-label">Daftar Sebagai: </label>
-                            <div class="form-radio-item">
-                                <input type="radio" name="gender" id="guru" checked>
-                                <label for="guru">Guru</label>
-                                <span class="check"></span>
-                            </div>
-                            <div class="form-radio-item">
-                                <input type="radio" name="gender" id="murid">
-                                <label for="murid">Murid</label>
-                                <span class="check"></span>
-                            </div>
-                        </div>
-
+                <div class="form-group">
+                    <label for="inputRole" class="radio-label">Login Sebagai: </label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="admin">
+                        <label class="form-check-label" for="inlineRadio1">Admin</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="guru">
+                        <label class="form-check-label" for="inlineRadio2">Guru</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio3" value="murid">
+                        <label class="form-check-label" for="inlineRadio3">Murid</label>
+                    </div>
+                </div>
                 <br>
                 <button type="submit" class="btn">Register</button>
                 <!-- <table class="center">

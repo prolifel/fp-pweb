@@ -64,8 +64,8 @@
         <div class="card-body">
             <form action="login.php" method="post">
                 <div class="form-group">
-                    <label for="inputUsername">Username</label>
-                    <input class="form-control" type="text" id="inputUsername" name="username">
+                    <label for="inputUsername">Email</label>
+                    <input class="form-control" type="text" id="inputUsername" name="email">
                 </div>
                 <div class="form-group">
                     <label for="inputUsername">Password</label>
@@ -78,7 +78,20 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="innputRole">Login Sebagai</label>
+                    <label for="inputRole" class="radio-label">Login Sebagai: </label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="admin">
+                        <label class="form-check-label" for="inlineRadio1">Admin</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="guru">
+                        <label class="form-check-label" for="inlineRadio2">Guru</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio3" value="murid">
+                        <label class="form-check-label" for="inlineRadio3">Murid</label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
                 <!-- <table class="center">

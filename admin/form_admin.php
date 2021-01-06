@@ -26,18 +26,60 @@
             }
         }
 
-        .bg-image {
-            /* The image used */
-            background-image: url("../assets/rustem-baltiyev-x_YN1GKSn-0-un.png");
-
-            /* Full height */
-            height: 100%;
-
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        .form-reg {
+            display: block;
+            position: relative;
+            margin: 40px 0px;
         }
+        .label-txt {
+            position: absolute;
+            top: -1.6em;
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: .8em;
+            letter-spacing: 1px;
+            color: rgb(0,0,0);
+            transition: ease .3s;
+        }
+        .input {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .line-box {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background: #BCBCBC;
+        }
+
+        .line {
+        position: absolute;
+            width: 0%;
+            height: 2px;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #8BC34A;
+            transition: ease .6s;
+        }
+
+        .input:focus + .line-box .line {
+            width: 100%;
+        }
+
+        .label-active {
+            top: -3em;
+        }
+
+        button:hover {
+            background: #8BC34A;
+            /* color: #ffffff; */
+        }
+    
         .login-content {
             display: flex;
             align-items: center;
@@ -58,33 +100,6 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand" href="../landing.php">e-Rapor</a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">   
-            <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
-        </span> -->
-        <a class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-            <span> </span>
-            <span> </span>
-            <span> </span>
-        </a>
-        <!-- <span class="navbar-toggler-icon top-bar"></span>
-        <span class="navbar-toggler-icon middle-bar"></span>
-        <span class="navbar-toggler-icon bottom-bar"></span> -->
-        <!-- </button> -->
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            
-            </ul>
-            <!-- dikanan -->
-            <form class="form-inline my-2 my-lg-0">
-                <a class="btn btn-primary my-2 my-sm-0 mx-4" type="button" href="./admin/form_admin.php">Login</a>
-                <a class="btn btn-light my-2 my-sm-0" type="button" href="./admin/form_register.php">Register</a>
-            </form>
-        </div>
-    </nav>
 
     <!-- <main role="main" class="card mx-auto" style="width: 20rem;"> -->
         
@@ -94,11 +109,15 @@
             <div class="card-header">
             <h2>Login</h2>
             </div>
-                <div class="form-group">
-                    <label for="inputUsername">Email</label>
+                
+                <label class="form-reg" for="inputUsername">
+                    <p class="label-txt">Email</p>
                     <input class="form-control" type="text" id="inputUsername" name="email">
-                </div>
-                <div class="form-group">
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                </label>
+                <!-- <div class="form-group">
                     <label for="inputUsername">Password</label>
                     <input class="form-control" type="password" id="inputPassword" name="password">
                     <div class="form-group">
@@ -107,7 +126,14 @@
                             <label class="custom-control-label" for="showPassword">Show Password</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
+                <label class="form-reg" for="inputUsername">
+                    <p class="label-txt">Password</p>
+                    <input class="form-control" type="password" id="inputPassword" name="password">
+                    <div class="line-box">
+                        <div class="line"></div>
+                    </div>
+                </label>
                 <div class="form-group">
                     <label for="inputRole" class="radio-label">Login Sebagai: </label>
                     <br>
@@ -124,7 +150,7 @@
                         <label class="form-check-label" for="inlineRadio3">Murid</label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-success">Login</button>
                 <!-- <table class="center">
                     <tr>
                         <td>Username</td>

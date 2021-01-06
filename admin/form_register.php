@@ -26,28 +26,7 @@
             }
         }
 
-        .bg-image {
-            /* The image used */
-            background-image: url("../assets/rustem-baltiyev-x_YN1GKSn-0-un.png");
-
-            /* Full height */
-            height: 100%;
-
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* form {
-            width: 60%;
-            margin: 60px auto;
-            background: #efefef;
-            padding: 60px 120px 80px 120px;
-            text-align: center;
-            -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-            box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-        } */
+      
         .form-reg {
             display: block;
             position: relative;
@@ -175,8 +154,7 @@
             </ul>
             <!-- dikanan -->
             <form class="form-inline my-2 my-lg-0">
-                <a class="btn btn-primary my-2 my-sm-0 mx-4" type="button" href="./admin/form_admin.php">Login</a>
-                <a class="btn btn-light my-2 my-sm-0" type="button" href="./admin/form_register.php">Register</a>
+                <a class="btn btn-warning my-2 my-sm-0 mx-4" type="button" href="./admin/form_admin.php">Login</a>
             </form>
         </div>
     </nav>
@@ -234,7 +212,7 @@
                     </div>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-outline-warning">Register</button>
+                <button type="submit" class="btn btn-warning">Register</button>
                 <!-- <table class="center">
                     <tr>
                         <td>Username</td>

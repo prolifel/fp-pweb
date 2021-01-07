@@ -132,28 +132,28 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
         <a class="navbar-brand" href="landing.php">e-Rapor</a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">   
-            <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
-        </span> -->
+
         <a class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
             <span> </span>
             <span> </span>
             <span> </span>
         </a>
-        <!-- <span class="navbar-toggler-icon top-bar"></span>
-        <span class="navbar-toggler-icon middle-bar"></span>
-        <span class="navbar-toggler-icon bottom-bar"></span> -->
-        <!-- </button> -->
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             
             </ul>
             <!-- dikanan -->
+            
             <form class="form-inline my-2 my-lg-0">
                 <!-- <a class="btn btn-primary my-2 my-sm-0 mx-4" type="button" href="./admin/form_admin.php">Login</a> -->
-                <a class="btn btn-warning my-2 my-sm-0" type="button" href="./admin/form_register.php">Register</a>
+                <ul class="nav-item dropdown my-2 my-sm-0">
+                    <a class="btn btn-warning nav-link dropdown-toggle" type="button" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Register</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="./admin/formRegisterGuru.php">Guru</a>
+                        <a class="dropdown-item" href="./admin/formRegisterMurid.php">Murid</a>
+                    </div>
+                </ul>
             </form>
         </div>
     </nav>

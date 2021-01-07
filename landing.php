@@ -15,7 +15,7 @@
 		width: 100%;
 		height: 400px;
 		background-color: rgb(232, 235, 238); 
-		background-image: url("./assets/bg-landing.jpg");
+		background-image: url("./assets/bgland.png");
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		background-size: cover;

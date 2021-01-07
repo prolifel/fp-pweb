@@ -7,6 +7,16 @@
 
     <style>
         body {
+		width: 100%;
+		height: 400px;
+		background-color: rgb(232, 235, 238); 
+		background-image: url("../assets/bgreg.png");
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	    }
+        body {
             min-height: 75rem;
             padding-top: 4.5rem;
         }
@@ -97,6 +107,8 @@
             padding-bottom: 3%;
             padding-top: 3%;
         } 
+
+        
     </style>
     <script>
         // Function to check Whether both passwords 

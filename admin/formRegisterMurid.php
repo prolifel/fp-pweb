@@ -149,7 +149,7 @@
             </ul>
             <!-- dikanan -->
             <form class="form-inline my-2 my-lg-0">
-                <a class="btn btn-warning my-2 my-sm-0 mx-4" type="button" href="./admin/form_admin.php">Login</a>
+                <a class="btn btn-warning my-2 my-sm-0 mx-4" type="button" href="../landing.php">Login</a>
             </form>
         </div>
     </nav>

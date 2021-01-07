@@ -112,23 +112,15 @@
                 
                 <label class="form-reg" for="inputUsername">
                     <p class="label-txt">Email</p>
+                    <br>
                     <input class="form-control" type="text" id="inputUsername" name="email">
                     <div class="line-box">
                         <div class="line"></div>
                     </div>
                 </label>
-                <!-- <div class="form-group">
-                    <label for="inputUsername">Password</label>
-                    <input class="form-control" type="password" id="inputPassword" name="password">
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="showPassword" onclick="showHidePassword()">
-                            <label class="custom-control-label" for="showPassword">Show Password</label>
-                        </div>
-                    </div>
-                </div> -->
                 <label class="form-reg" for="inputUsername">
                     <p class="label-txt">Password</p>
+                    <br>
                     <input class="form-control" type="password" id="inputPassword" name="password">
                     <div class="line-box">
                         <div class="line"></div>
@@ -151,20 +143,6 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success">Login</button>
-                <!-- <table class="center">
-                    <tr>
-                        <td>Username</td>
-                        <td><input type="text" name="username" size="20"></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" size="20"></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td><input type="submit" name="Login" value="Proses"></td>
-                    </tr>
-                </table> -->
             </form>
         </div>
     <!-- </main> -->

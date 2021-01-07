@@ -10,21 +10,18 @@
         switch ($role) {
             case "admin":
                 $_SESSION['admin_login']=$username; 
-                $loginMsg="$username sukses login";
                 // echo("Admin berhasil");
                 // TODO: Header ke home admin
                 header("refresh:3;home.php");
                 break;
             case "guru":
                 $_SESSION['guru_login']=$username; 
-                $loginMsg="$username sukses login";
                 // echo("Guru berhasil");
                 // TODO: Header ke home guru
                 header("refresh:3;home.php");
                 break;
             case "murid":
                 $_SESSION['user_login']=$username; 
-                $loginMsg="$username sukses login";
                 // echo("Murid berhasil");
                 // TODO: Header ke home murid
                 header("refresh:3;home.php");
@@ -44,7 +41,7 @@
         ?>
         <script>
             alert("Username atau password salah. Silakan login kembali");
-            // window.location = 'form_admin.php'
+            window.location = '../landing.php'
         </script>
         <?php
     }

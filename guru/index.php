@@ -63,11 +63,60 @@
     <h1 class="display-2 text-center">Daftar Mata Pelajaran</h1>
     <main role="main" class="container">
         <form action="nilai.php" method="get">
-            <button type="submit" class="btn btn-outline-primary btn-lg btn-block" name="id" value="biologi">Biologi</button>
-            <button type="submit" class="btn btn-outline-primary btn-lg btn-block" name="id" value="fisika">Fisika</button>
-            <button type="submit" class="btn btn-outline-primary btn-lg btn-block" name="id" value="kimia">Kimia</button>
             <button type="submit" class="btn btn-outline-primary btn-lg btn-block" name="id" value="math">Matematika</button>
         </form>
+    <div class="card-deck">
+            <div class="card">
+            <img class="card-img-top" src="../assets/bio.png" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">BIOLOGI</h5>
+            <p class="card-text">Jam 14:00 - 15:50</p>
+            <form action="nilai.php" method="get">
+                <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="biologi">Input Nilai</button>
+            </form>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="../assets/fisik.png" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Fisika</h5>
+            <p class="card-text">Jam 15:50 - 18:50</p>
+            <form action="nilai.php" method="get">
+                <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="fisika">Input Nilai</button>
+            </form>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="../assets/kimia.png" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Kimia</h5>
+            <p class="card-text">Jam 19:00 - 20:50</p>
+            <form action="nilai.php" method="get">
+                <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="kimia">Input Nilai</button>
+            </form>
+            </div>
+        </div>
+        <!-- <div class="card">
+            <img class="card-img-top" src="../assets/mat.png" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Matematika</h5>
+            <p class="card-text">Jam 06:00 - 8:50</p>
+            <form action="nilai.php" method="get">
+                <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="math">Input Nilai</button>
+            </form>
+            </div>
+        </div> -->
+    </div>
+    <div class="card-deck p-3" >
+    <img class="card-img-top" src="../assets/mat.png" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Matematika</h5>
+            <p class="card-text">Jam 06:00 - 8:50</p>
+            <form action="nilai.php" method="get">
+                <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="math">Input Nilai</button>
+            </form>
+            </div>
+    </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>

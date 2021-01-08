@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2021 at 06:25 PM
+-- Generation Time: Jan 08, 2021 at 03:58 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -71,6 +71,52 @@ INSERT INTO `biodata` (`id`, `nama`, `alamat`, `usia`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kelas`
+--
+
+CREATE TABLE `kelas` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(45) NOT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `urutan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kelas`
+--
+
+INSERT INTO `kelas` (`id`, `nama`, `parent_id`, `urutan`) VALUES
+(1, 'KELAS X', NULL, 1),
+(2, 'KELAS X - A', 1, 2),
+(3, 'KELAS X - B', 1, 3),
+(4, 'KELAS X - C', 1, 4),
+(5, 'KELAS X - D', 1, 5),
+(6, 'KELAS XI', NULL, 6),
+(7, 'KELAS XI - A', 6, 7),
+(8, 'KELAS XI - B', 6, 8),
+(9, 'KELAS XI - C', 6, 9),
+(10, 'KELAS XI - D', 6, 10),
+(11, 'KELAS XII', NULL, 11),
+(12, 'KELAS XII - A', 11, 12),
+(13, 'KELAS XII - B', 11, 13),
+(14, 'KELAS XII - C', 11, 14),
+(15, 'KELAS XII - D', 11, 15);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kelas_siswa`
+--
+
+CREATE TABLE `kelas_siswa` (
+  `id` int(11) NOT NULL,
+  `kelas_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `log`
 --
 
@@ -116,16 +162,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role`, `email`, `nama`, `username`, `password`) VALUES
-(1, 'admin', '', 'Clement', 'admin', '202cb962ac59075b964b07152d234b70'),
-(2, 'guru', '', 'Edo', 'edo', '202cb962ac59075b964b07152d234b70'),
-(3, 'murid', '', 'Ucok', 'ucok', '202cb962ac59075b964b07152d234b70'),
-(5, 'admin', '', 'Adam', 'adam', '202cb962ac59075b964b07152d234b70'),
-(6, 'admin', 'test@example.com', '', 'ardy', '202cb962ac59075b964b07152d234b70'),
-(7, 'guru', 'clement@mail.com', '', NULL, '25d55ad283aa400af464c76d713c07ad'),
-(8, 'guru', 'test@mail.com', '', NULL, '25d55ad283aa400af464c76d713c07ad'),
-(9, 'admin', 'coba@mail.com', '', NULL, '202cb962ac59075b964b07152d234b70'),
-(10, 'admin', 'coba@mail.com', 'Cobain Aja', NULL, '202cb962ac59075b964b07152d234b70'),
-(11, 'murid', 'clement.085w@gmail.com', 'Halo People', NULL, '25d55ad283aa400af464c76d713c07ad');
+(1, 'admin', 'clement@admin.com', 'Clement Prolifel Priyatama', NULL, '202cb962ac59075b964b07152d234b70'),
+(2, 'admin', 'edo@admin.com', 'Edo Yogatama', NULL, '202cb962ac59075b964b07152d234b70'),
+(3, 'admin', 'rafi@admin.com', 'Naufal Rafi Harahap', NULL, '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -164,6 +203,12 @@ ALTER TABLE `biodata`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `kelas_siswa`
+--
+ALTER TABLE `kelas_siswa`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -192,10 +237,16 @@ ALTER TABLE `biodata`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `kelas_siswa`
+--
+ALTER TABLE `kelas_siswa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_role`

@@ -8,7 +8,13 @@
     <style>
         body {
             min-height: 75rem;
-            padding-top: 4.5rem;
+            padding-top: 6rem;
+            background-color: rgb(232, 235, 238); 
+            background-image: url("../assets/bgguru.png");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
         }
         
         .bd-placeholder-img {
@@ -26,49 +32,106 @@
             }
         }
 
-        .bg-image {
-            /* The image used */
-            background-image: url("./assets/rustem-baltiyev-x_YN1GKSn-0-un.png");
-
-            /* Full height */
-            height: 100%;
-
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        .card {
+            box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2), 5px 6px 20px rgba(0, 0, 0, 0.1);
         }
-    
+        .card-img-top{
+            height: 215px;
+            width: 500px;
+        }
+        #contain {
+            margin-top: 5%;
+            margin-left: 20%;
+            align-items: center;
+        }
+        .btn {
+            box-shadow: 3px 4px 8px rgba(255,165,0, 0.4), 5px 6px 20px rgba(255,165,0, 0.3);
+        }
+        
+        
     </style>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
         <a class="navbar-brand" href="landing.php">e-Rapor</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
+        <a class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span> </span>
+            <span> </span>
+            <span> </span>
+        </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             
             </ul>
             <!-- dikanan -->
-            <form class="form-inline my-2 my-lg-0">
-                <a class="btn btn-primary my-2 my-sm-0 mx-4" type="button" href="./admin/form_admin.php">Login</a>
-                <a class="btn btn-secondary my-2 my-sm-0" type="button" href="./admin/form_register.php">Register</a>
-            </form>
+            
+        
         </div>
     </nav>
-    <h1 class="display-2 text-center">Daftar Mata Pelajaran</h1>
-    <main role="main" class="container">
-        <form action="nilai.php" method="get">
-            <button type="submit" class="btn btn-outline-primary btn-lg btn-block" name="id" value="biologi">Biologi</button>
-            <button type="submit" class="btn btn-outline-primary btn-lg btn-block" name="id" value="fisika">Fisika</button>
-            <button type="submit" class="btn btn-outline-primary btn-lg btn-block" name="id" value="kimia">Kimia</button>
-            <button type="submit" class="btn btn-outline-primary btn-lg btn-block" name="id" value="math">Matematika</button>
-        </form>
-    </main>
+    
+    <div class="container">
+        <div class="card text-black bg-warning mb-3">
+            <div class="card-header">
+                <h5>Hai, Guru!</h5>
+            </div>
+            <div class="card-body">
+            <h3 class="card-title">Mata Pelajaran</h5>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+  <div class="container-fluid d-flex justify-content-center" id="">
+      
+    <div class="row card-columns" >
+        <div class="card col-4" style="max-width: 19rem;">
+                <img class="card-img-top" src="../assets/bio.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">BIOLOGI</h5>
+                    <p class="card-text">Jam 14:00 - 15:50</p>
+                    <form action="nilai.php" method="get">
+                        <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="biologi">Input Nilai</button>
+                    </form>
+                </div>
+            </div>
+        <div class="card col-4" style="max-width: 19rem;">
+            <img class="card-img-top" src="../assets/fisik.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">FISIKA</h5>
+                <p class="card-text">Jam 15:50 - 18:50</p>
+                <form action="nilai.php" method="get">
+                    <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="fisika">Input Nilai</button>
+                </form>
+            </div>
+        </div>
+        <div class="card col-4" style="max-width: 19rem;">
+            <img class="card-img-top" src="../assets/kimia.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">KIMIA</h5>
+                <p class="card-text">Jam 19:00 - 20:50</p>
+                <form action="nilai.php" method="get">
+                    <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="kimia">Input Nilai</button>
+                </form>
+            </div>
+        </div>
+        <div class="card col-4" style="max-width: 19rem;">
+                <img class="card-img-top" src="../assets/math12.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">MATEMATIKA</h5>
+                    <p class="card-text">Jam 14:00 - 15:50</p>
+                    <form action="nilai.php" method="get">
+                        <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="math">Input Nilai</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+    
+    </div>
+  
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
     <script src="./js/bootstrap.bundle.min.js"></script>

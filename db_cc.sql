@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 08, 2021 at 06:44 PM
+-- Generation Time: Jan 09, 2021 at 04:54 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -102,6 +102,36 @@ CREATE TABLE `log` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mapel`
+--
+
+CREATE TABLE `mapel` (
+  `id_mapel` int(11) NOT NULL,
+  `nama_mapel` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nilai_siswa`
+--
+
+CREATE TABLE `nilai_siswa` (
+  `id_nilai_siswa` int(11) NOT NULL,
+  `id_mapel` int(11) NOT NULL,
+  `id_guru` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
+  `tugas1` int(100) NOT NULL,
+  `tugas2` int(100) NOT NULL,
+  `uts` int(100) NOT NULL,
+  `uas` int(100) NOT NULL,
+  `praktikum` int(100) NOT NULL,
+  `komentar` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -120,7 +150,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `role`, `email_user`, `nama_user`, `username_user`, `password_user`) VALUES
 (1, 1, 'guru@guru.com', 'guru', 'guru1', '0192023a7bbd73250516f069df18b500'),
-(2, 2, 'siswa@siswa.com', 'siswa', 'siswa1', '3afa0d81296a4f17d477ec823261b1ec');
+(2, 2, 'siswa@siswa.com', 'siswa', 'siswa1', '3afa0d81296a4f17d477ec823261b1ec'),
+(3, 2, 'murid@murid.com', 'murid1', NULL, '80b27f30a8d6d2a476e4c9f3c665df7e');
 
 -- --------------------------------------------------------
 
@@ -172,6 +203,21 @@ ALTER TABLE `kelas_siswa`
   ADD UNIQUE KEY `kelas_id` (`kelas_id`,`user_id`);
 
 --
+-- Indexes for table `mapel`
+--
+ALTER TABLE `mapel`
+  ADD PRIMARY KEY (`id_mapel`);
+
+--
+-- Indexes for table `nilai_siswa`
+--
+ALTER TABLE `nilai_siswa`
+  ADD PRIMARY KEY (`id_nilai_siswa`),
+  ADD KEY `id_mapel` (`id_mapel`,`id_guru`,`id_siswa`),
+  ADD KEY `id_guru` (`id_guru`),
+  ADD KEY `id_siswa` (`id_siswa`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -213,10 +259,22 @@ ALTER TABLE `kelas_siswa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `mapel`
+--
+ALTER TABLE `mapel`
+  MODIFY `id_mapel` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `nilai_siswa`
+--
+ALTER TABLE `nilai_siswa`
+  MODIFY `id_nilai_siswa` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -233,6 +291,14 @@ ALTER TABLE `user_role`
 --
 ALTER TABLE `biodata`
   ADD CONSTRAINT `biodata_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `nilai_siswa`
+--
+ALTER TABLE `nilai_siswa`
+  ADD CONSTRAINT `nilai_siswa_ibfk_1` FOREIGN KEY (`id_mapel`) REFERENCES `mapel` (`id_mapel`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `nilai_siswa_ibfk_2` FOREIGN KEY (`id_guru`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `nilai_siswa_ibfk_3` FOREIGN KEY (`id_siswa`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `users`

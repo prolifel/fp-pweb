@@ -1,7 +1,7 @@
 <?php session_start();
     include "../koneksi.php";
     $email=$_POST['email'];
-    $password=md5($_POST['password']);
+    $password=$_POST['password'];
     $role= (int)$_POST['role'];
     if($role == 0){
         $query=mysqli_query($koneksi,"select * from admin where email_admin='$email' and password_admin='$password'");

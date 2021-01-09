@@ -91,7 +91,7 @@
 
     // flag 
     if ($register > 0 && $register <= 2) {
-        $query = "INSERT into `users` (id, role, email_user, nama_user, username_user, password_user) VALUES (NULL, $register, '$email', '$nama', NULL, '".md5($password)."')";
+        $query = "INSERT into `users` (id, role, email_user, nama_user, username_user, password_user) VALUES (NULL, $register, '$email', '$nama', NULL, '$password')";
         $result = mysqli_query($koneksi,$query);
 
         if ($register == 2) {

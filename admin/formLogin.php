@@ -96,6 +96,9 @@
             padding-bottom: 3%;
             padding-top: 3%;
         }
+        .btn{
+            box-shadow: 3px 4px 8px rgba(50,205,50, 0.4), 5px 6px 20px rgba(50,205,50, 0.3);
+        }
     </style>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>

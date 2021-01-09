@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 08, 2021 at 03:58 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Host: localhost
+-- Generation Time: Jan 08, 2021 at 06:44 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,23 +29,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(2) NOT NULL,
-  `nama` varchar(20) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `email_admin` varchar(25) NOT NULL,
+  `nama_admin` varchar(50) NOT NULL,
+  `username_admin` varchar(25) NOT NULL,
+  `password_admin` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `nama`, `username`, `password`) VALUES
-(1, 'Administrator', 'admin', '0192023a7bbd73250516f069df18b500'),
-(2, 'coba', 'coba', 'c4ca4238a0b923820dcc509a6f75849b'),
-(4, 'User', 'user', 'c4ca4238a0b923820dcc509a6f75849b'),
-(8, 'coba', 'cobalagi', 'c4ca4238a0b923820dcc509a6f75849b'),
-(9, 'coba', 'cobalagi2', 'c4ca4238a0b923820dcc509a6f75849b'),
-(10, 'demo', 'demo', 'c4ca4238a0b923820dcc509a6f75849b'),
-(11, 'oke', '123', '25d55ad283aa400af464c76d713c07ad');
+INSERT INTO `admin` (`id`, `email_admin`, `nama_admin`, `username_admin`, `password_admin`) VALUES
+(4, 'admin@admin.com', 'admin', 'admin', '0192023a7bbd73250516f069df18b500');
 
 -- --------------------------------------------------------
 
@@ -55,18 +50,11 @@ INSERT INTO `admin` (`id`, `nama`, `username`, `password`) VALUES
 
 CREATE TABLE `biodata` (
   `id` int(2) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama` varchar(20) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `usia` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `biodata`
---
-
-INSERT INTO `biodata` (`id`, `nama`, `alamat`, `usia`) VALUES
-(2, 'fds', '1341', 345),
-(3, 'Halo People2', 'cobain aja2', 343);
 
 -- --------------------------------------------------------
 
@@ -86,21 +74,7 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id`, `nama`, `parent_id`, `urutan`) VALUES
-(1, 'KELAS X', NULL, 1),
-(2, 'KELAS X - A', 1, 2),
-(3, 'KELAS X - B', 1, 3),
-(4, 'KELAS X - C', 1, 4),
-(5, 'KELAS X - D', 1, 5),
-(6, 'KELAS XI', NULL, 6),
-(7, 'KELAS XI - A', 6, 7),
-(8, 'KELAS XI - B', 6, 8),
-(9, 'KELAS XI - C', 6, 9),
-(10, 'KELAS XI - D', 6, 10),
-(11, 'KELAS XII', NULL, 11),
-(12, 'KELAS XII - A', 11, 12),
-(13, 'KELAS XII - B', 11, 13),
-(14, 'KELAS XII - C', 11, 14),
-(15, 'KELAS XII - D', 11, 15);
+(1, '12 IPA 3', 3, 21);
 
 -- --------------------------------------------------------
 
@@ -125,23 +99,6 @@ CREATE TABLE `log` (
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `log`
---
-
-INSERT INTO `log` (`nama`, `timestamp`) VALUES
-('admin', '2020-12-17 10:24:50'),
-('admin', '2020-12-17 10:28:59'),
-('admin', '2020-12-17 10:29:59'),
-('admin', '2020-12-17 10:30:12'),
-('admin', '2020-12-17 10:32:43'),
-('admin', '2020-12-17 10:33:48'),
-('admin', '2020-12-17 10:34:35'),
-('admin', '2020-12-17 11:03:12'),
-('admin', '2020-12-17 11:04:37'),
-('admin', '2020-12-17 11:10:08'),
-('demo', '2020-12-17 12:14:57');
-
 -- --------------------------------------------------------
 
 --
@@ -150,21 +107,20 @@ INSERT INTO `log` (`nama`, `timestamp`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `role` varchar(50) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL
+  `role` int(11) NOT NULL,
+  `email_user` varchar(25) NOT NULL,
+  `nama_user` varchar(50) DEFAULT NULL,
+  `username_user` varchar(25) DEFAULT NULL,
+  `password_user` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role`, `email`, `nama`, `username`, `password`) VALUES
-(1, 'admin', 'clement@admin.com', 'Clement Prolifel Priyatama', NULL, '202cb962ac59075b964b07152d234b70'),
-(2, 'admin', 'edo@admin.com', 'Edo Yogatama', NULL, '202cb962ac59075b964b07152d234b70'),
-(3, 'admin', 'rafi@admin.com', 'Naufal Rafi Harahap', NULL, '202cb962ac59075b964b07152d234b70');
+INSERT INTO `users` (`id`, `role`, `email_user`, `nama_user`, `username_user`, `password_user`) VALUES
+(1, 1, 'guru@guru.com', 'guru', 'guru1', '0192023a7bbd73250516f069df18b500'),
+(2, 2, 'siswa@siswa.com', 'siswa', 'siswa1', '3afa0d81296a4f17d477ec823261b1ec');
 
 -- --------------------------------------------------------
 
@@ -174,7 +130,7 @@ INSERT INTO `users` (`id`, `role`, `email`, `nama`, `username`, `password`) VALU
 
 CREATE TABLE `user_role` (
   `id` int(11) NOT NULL,
-  `user_role` varchar(100) DEFAULT NULL
+  `user_role` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -182,9 +138,8 @@ CREATE TABLE `user_role` (
 --
 
 INSERT INTO `user_role` (`id`, `user_role`) VALUES
-(1, 'admin'),
-(2, 'guru'),
-(3, 'siswa');
+(1, 'guru'),
+(2, 'siswa');
 
 --
 -- Indexes for dumped tables
@@ -200,19 +155,28 @@ ALTER TABLE `admin`
 -- Indexes for table `biodata`
 --
 ALTER TABLE `biodata`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_user` (`id_user`);
+
+--
+-- Indexes for table `kelas`
+--
+ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `kelas_siswa`
 --
 ALTER TABLE `kelas_siswa`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kelas_id` (`kelas_id`,`user_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role` (`role`);
 
 --
 -- Indexes for table `user_role`
@@ -228,31 +192,53 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `biodata`
 --
 ALTER TABLE `biodata`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kelas_siswa`
 --
 ALTER TABLE `kelas_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `biodata`
+--
+ALTER TABLE `biodata`
+  ADD CONSTRAINT `biodata_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role`) REFERENCES `user_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

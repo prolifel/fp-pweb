@@ -32,7 +32,7 @@
         $kelasID = $temp['urutan'];
 
         // ambil UserID
-        $findID = mysqli_query($koneksi, "select `id` from `users` where email='$email'");
+        $findID = mysqli_query($koneksi, "select `id` from `users` where email_user='$email'");
         $temp1 = mysqli_fetch_assoc($findID);
         $userID = $temp1['id'];
 
@@ -48,7 +48,7 @@
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                     $fileName = basename( $_FILES["fileToUpload"]["name"]);
                     $file = "../uploads/".$fileName;
-                    $test = passthru("python ./face_detection.py -i $file");
+                    $test = passthru("python3 face_detection.py -i $file");
                     
                     if (!$test) {
                         ?>
@@ -91,7 +91,7 @@
 
     // flag 
     if ($register > 0 && $register <= 2) {
-        $query = "INSERT into `users` (id, role, email, nama, username, password) VALUES (NULL, '$role', '$email', '$nama', NULL, '".md5($password)."')";
+        $query = "INSERT into `users` (id, role, email_user, nama_user, username_user, password_user) VALUES (NULL, $register, '$email', '$nama', NULL, '".md5($password)."')";
         $result = mysqli_query($koneksi,$query);
 
         if ($register == 2) {

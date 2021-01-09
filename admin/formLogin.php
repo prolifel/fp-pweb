@@ -104,12 +104,10 @@
     <!-- <main role="main" class="card mx-auto" style="width: 20rem;"> -->
         
         <div class="login-content" >
-        
             <form action="./admin/login.php" method="post">
-            <div class="card-header">
-            <h2>Login</h2>
-            </div>
-                
+                <div class="card-header">
+                    <h2>Login</h2>
+                </div>
                 <label class="form-reg" for="inputUsername">
                     <p class="label-txt">Email</p>
                     <br>
@@ -130,15 +128,15 @@
                     <label for="inputRole" class="radio-label">Login Sebagai: </label>
                     <br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="admin">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="0">
                         <label class="form-check-label" for="inlineRadio1">Admin</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="guru">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="1">
                         <label class="form-check-label" for="inlineRadio2">Guru</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="inlineRadio3" value="murid">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio3" value="2">
                         <label class="form-check-label" for="inlineRadio3">Murid</label>
                     </div>
                 </div>

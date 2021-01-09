@@ -167,11 +167,6 @@
         
             
             <?php
-                if(isset($_GET)){
-                    if($_GET['msg']=="fail"){
-                        echo "Log In Failed";
-                    }
-                }
                 include './admin/formLogin.php';
             ?>
             

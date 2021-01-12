@@ -1,0 +1,15 @@
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 69);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 70);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 71);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 72);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 73);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 74);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 75);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 76);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 77);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 78);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 79);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 80);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 81);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 82);
+insert into kelas_siswa(id, kelas_id, guru_id, siswa_id) values (null, 1, 4, 83);

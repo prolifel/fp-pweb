@@ -251,67 +251,74 @@
     <div class="container" id="panel">
     
     <div id="accordion">
-        <div class="card bg-dark" style="max-width: 19rem;">
-            <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-                <button class="btn collapsed text-white" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Naufal Rafi Akbar H.
-                </button>
-            </h5>
-            </div>
+        <?php
+            include "./queryMurid.php";
+            $res = getMurid();
+            while($name = mysqli_fetch_array($res)){
+                // echo "Nama ".$name[1];
+                ?>
+                    <div class="card bg-dark" style="max-width: 19rem;">
+                        <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn collapsed text-white" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <?php echo $name[1];?>
+                            </button>
+                        </h5>
+                        </div>
 
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-            <a class="btn btn-warning" data-toggle="collapse" href="#collapsetgsA" role="button" aria-expanded="false" aria-controls="collapsetgsA" id="konten">
-                    Tugas 1
-                </a>
-                <div class="collapse" id="collapsetgsA">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-            
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseTGS2A" role="button" aria-expanded="false" aria-controls="collapseTGS2A" id="konten">
-                    Tugas 2
-                </a>
-                <div class="collapse" id="collapseTGS2A">
-                    <div class="card card-body" > 
-                        Input Nilai Disini
-                    </div>
-                </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                        <a class="btn btn-warning" data-toggle="collapse" href="#collapsetgsA" role="button" aria-expanded="false" aria-controls="collapsetgsA" id="konten">
+                                Tugas 1
+                            </a>
+                            <div class="collapse" id="collapsetgsA">
+                                <div class="card card-body">
+                                    Input Nilai Disini
+                                </div>
+                            </div>
+                        
+                            <a class="btn btn-warning" data-toggle="collapse" href="#collapseTGS2A" role="button" aria-expanded="false" aria-controls="collapseTGS2A" id="konten">
+                                Tugas 2
+                            </a>
+                            <div class="collapse" id="collapseTGS2A">
+                                <div class="card card-body" > 
+                                    Input Nilai Disini
+                                </div>
+                            </div>
 
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUTSA" role="button" aria-expanded="false" aria-controls="collapseUTSA" id="konten">
-                   UTS
-                </a>
-                <div class="collapse" id="collapseUTSA">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
+                            <a class="btn btn-warning" data-toggle="collapse" href="#collapseUTSA" role="button" aria-expanded="false" aria-controls="collapseUTSA" id="konten">
+                            UTS
+                            </a>
+                            <div class="collapse" id="collapseUTSA">
+                                <div class="card card-body">
+                                    Input Nilai Disini
+                                </div>
+                            </div>
 
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUASA" role="button" aria-expanded="false" aria-controls="collapseUASA" id="konten">
-                    UAS
-                </a>
-                <div class="collapse" id="collapseUASA">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
+                            <a class="btn btn-warning" data-toggle="collapse" href="#collapseUASA" role="button" aria-expanded="false" aria-controls="collapseUASA" id="konten">
+                                UAS
+                            </a>
+                            <div class="collapse" id="collapseUASA">
+                                <div class="card card-body">
+                                    Input Nilai Disini
+                                </div>
+                            </div>
 
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapsePrakA" role="button" aria-expanded="false" aria-controls="collapsePrakA" id="konten">
-                    Praktikum
-                </a>
-                <div class="collapse" id="collapsePrakA">
-                    <div class="card card-body">
-                        Input Nilai Disini
+                            <a class="btn btn-warning" data-toggle="collapse" href="#collapsePrakA" role="button" aria-expanded="false" aria-controls="collapsePrakA" id="konten">
+                                Praktikum
+                            </a>
+                            <div class="collapse" id="collapsePrakA">
+                                <div class="card card-body">
+                                    Input Nilai Disini
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        
-        <br>
-        
+                    <br>
+                <?php
+            }
+        ?>
         <!-- <div class="card bg-dark" style="max-width: 19rem;">
             <div class="card-header" id="headingTwo" >
             <h5 class="mb-0">

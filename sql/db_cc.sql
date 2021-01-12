@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2021 at 04:54 PM
+-- Generation Time: Jan 12, 2021 at 05:00 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -85,8 +85,30 @@ INSERT INTO `kelas` (`id`, `nama`, `parent_id`, `urutan`) VALUES
 CREATE TABLE `kelas_siswa` (
   `id` int(11) NOT NULL,
   `kelas_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `guru_id` int(11) NOT NULL,
+  `siswa_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `kelas_siswa`
+--
+
+INSERT INTO `kelas_siswa` (`id`, `kelas_id`, `guru_id`, `siswa_id`) VALUES
+(2, 1, 4, 69),
+(3, 1, 4, 70),
+(4, 1, 4, 71),
+(5, 1, 4, 72),
+(6, 1, 4, 73),
+(7, 1, 4, 74),
+(8, 1, 4, 75),
+(9, 1, 4, 76),
+(10, 1, 4, 77),
+(11, 1, 4, 78),
+(12, 1, 4, 79),
+(13, 1, 4, 80),
+(14, 1, 4, 81),
+(15, 1, 4, 82),
+(16, 1, 4, 83);
 
 -- --------------------------------------------------------
 
@@ -149,9 +171,71 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role`, `email_user`, `nama_user`, `username_user`, `password_user`) VALUES
-(1, 1, 'guru@guru.com', 'guru', 'guru1', '0192023a7bbd73250516f069df18b500'),
-(2, 2, 'siswa@siswa.com', 'siswa', 'siswa1', '3afa0d81296a4f17d477ec823261b1ec'),
-(3, 2, 'murid@murid.com', 'murid1', NULL, '80b27f30a8d6d2a476e4c9f3c665df7e');
+(4, 1, 'guru@guru.com', 'Guru Satu', NULL, 'guru123'),
+(5, 2, 'siswa@siswa.com', 'Siswa Satu', NULL, 'siswa123'),
+(6, 1, 'guru@guru.com', 'Halo', NULL, 'halo123'),
+(7, 1, 'teach@teach.com', 'teach', NULL, 'teach123'),
+(8, 1, 'lagi@lagi.com', 'lagi', NULL, 'lagi123'),
+(69, 2, 'dhayle0@nymag.com', 'Dinny', 'dbottrill0', '1'),
+(70, 2, 'cphethean1@ucla.edu', 'Claire', 'czebedee1', '2'),
+(71, 2, 'aliles2@rakuten.co.jp', 'Allianora', 'abozier2', '3'),
+(72, 2, 'cmatzke3@people.com.cn', 'Case', 'csutehall3', '4'),
+(73, 2, 'lkepp4@blogtalkradio.com', 'Lilllie', 'llinder4', '5'),
+(74, 2, 'wreddlesden5@thetimes.co.', 'Welbie', 'wharmour5', '6'),
+(75, 2, 'rryce6@csmonitor.com', 'Raynell', 'rlenz6', '7'),
+(76, 2, 'srime7@ucla.edu', 'Stafford', 'srangeley7', '8'),
+(77, 2, 'rflintoft8@ifeng.com', 'Ralina', 'rfishbourne8', '9'),
+(78, 2, 'cshirt9@baidu.com', 'Cyndy', 'cblanko9', '10'),
+(79, 2, 'swhichelowa@cisco.com', 'Spencer', 'svaraha', '11'),
+(80, 2, 'jaaronsb@bloglines.com', 'Joann', 'jclaytonb', '12'),
+(81, 2, 'mwilnec@pinterest.com', 'Mead', 'mgariffc', '13'),
+(82, 2, 'aluned@vimeo.com', 'Ashli', 'apuddicombed', '14'),
+(83, 2, 'crobberechte@discuz.net', 'Casey', 'cdoublee', '15'),
+(84, 2, 'sulyatf@fda.gov', 'Sybila', 'soakwoodf', '16'),
+(85, 2, 'ncolreing@eventbrite.com', 'Nathanial', 'nflaonierg', '17'),
+(86, 2, 'cellumh@squarespace.com', 'Cynthie', 'cdrinnanh', '18'),
+(87, 2, 'dplasteri@drupal.org', 'Dall', 'dscampi', '19'),
+(88, 2, 'vbyj@squarespace.com', 'Valentia', 'vramesj', '20'),
+(89, 2, 'jjeffsk@opensource.org', 'Jilli', 'jalcidok', '21'),
+(90, 2, 'kwarrattl@purevolume.com', 'Kellie', 'kgamlenl', '22'),
+(91, 2, 'kaysikm@is.gd', 'Kimbell', 'kcliftm', '23'),
+(92, 2, 'hgailorn@acquirethisname.', 'Hobey', 'hlorrimann', '24'),
+(93, 2, 'vdesquesneso@bravesites.c', 'Valry', 'vdarragono', '25'),
+(94, 2, 'aharsep@unc.edu', 'Artur', 'aloveredgep', '26'),
+(95, 2, 'lfeltonq@sciencedaily.com', 'Latia', 'laltoftq', '27'),
+(96, 2, 'mcallisr@yellowpages.com', 'Magdalena', 'mgilbardr', '28'),
+(97, 2, 'calelsandrovichs@mlb.com', 'Carolynn', 'cbambridges', '29'),
+(98, 2, 'cdecruzt@altervista.org', 'Conant', 'cnancekivellt', '30'),
+(99, 2, 'njonuziu@geocities.com', 'Nerita', 'nmichalu', '31'),
+(100, 2, 'cfallenv@ycombinator.com', 'Cordy', 'cgartonv', '32'),
+(101, 2, 'wvassiew@indiatimes.com', 'West', 'wjemmisonw', '33'),
+(102, 2, 'tkearnx@sciencedaily.com', 'Therese', 'tmosebyx', '34'),
+(103, 2, 'ssimoniy@google.com.br', 'Sidnee', 'shinzey', '35'),
+(104, 2, 'tgreenhalghz@com.com', 'Thayne', 'tdefrancisciz', '36'),
+(105, 2, 'gschoffel10@example.com', 'Gilbert', 'gjelliman10', '37'),
+(106, 2, 'kmathiot11@plala.or.jp', 'Kara-lynn', 'kjerzykiewicz11', '38'),
+(107, 2, 'fsandal12@unicef.org', 'Flossi', 'fharrowing12', '39'),
+(108, 2, 'vaggio13@blinklist.com', 'Vinnie', 'vmaskrey13', '40'),
+(109, 2, 'elashmar14@hc360.com', 'Estella', 'espriggin14', '41'),
+(110, 2, 'gdiggles15@mozilla.com', 'Gwendolyn', 'gfulger15', '42'),
+(111, 2, 'lklimkov16@zimbio.com', 'Lyell', 'lhambribe16', '43'),
+(112, 2, 'rofarris17@google.com.au', 'Ruy', 'rmunden17', '44'),
+(113, 2, 'cwaterfall18@nbcnews.com', 'Coleen', 'cricket18', '45'),
+(114, 2, 'sbatiste19@multiply.com', 'Shawn', 'sharmant19', '46'),
+(115, 2, 'nphilippard1a@purevolume.', 'Nikolas', 'neilhermann1a', '47'),
+(116, 2, 'raronoff1b@usda.gov', 'Robinett', 'rduckhouse1b', '48'),
+(117, 2, 'dmaccumeskey1c@about.me', 'Dix', 'ddevoy1c', '49'),
+(118, 2, 'franahan1d@examiner.com', 'Francisco', 'fdymott1d', '50'),
+(119, 2, 'mmacneely1e@unicef.org', 'Mallorie', 'mnel1e', '51'),
+(120, 2, 'ialbrecht1f@mozilla.org', 'Immanuel', 'ijennaway1f', '52'),
+(121, 2, 'edomico1g@ebay.com', 'Enriqueta', 'eblindmann1g', '53'),
+(122, 2, 'tstrethill1h@meetup.com', 'Tracie', 'ttawton1h', '54'),
+(123, 2, 'kfussen1i@addthis.com', 'Konrad', 'kcarnduff1i', '55'),
+(124, 2, 'sshillitto1j@symantec.com', 'Sarine', 'sconre1j', '56'),
+(125, 2, 'bjindracek1k@deliciousday', 'Bronnie', 'balthrop1k', '57'),
+(126, 2, 'rgrouer1l@jalbum.net', 'Rosalynd', 'rredsell1l', '58'),
+(127, 2, 'cbrownsworth1m@unicef.org', 'Chancey', 'cpapa1m', '59'),
+(128, 2, 'rleve1n@zdnet.com', 'Rosemaria', 'rbroxholme1n', '60');
 
 -- --------------------------------------------------------
 
@@ -200,7 +284,8 @@ ALTER TABLE `kelas`
 --
 ALTER TABLE `kelas_siswa`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `kelas_id` (`kelas_id`,`user_id`);
+  ADD UNIQUE KEY `kelas_id` (`kelas_id`,`siswa_id`),
+  ADD KEY `guru_id` (`guru_id`);
 
 --
 -- Indexes for table `mapel`
@@ -256,7 +341,7 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT for table `kelas_siswa`
 --
 ALTER TABLE `kelas_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `mapel`
@@ -274,7 +359,7 @@ ALTER TABLE `nilai_siswa`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
 
 --
 -- AUTO_INCREMENT for table `user_role`

@@ -147,7 +147,9 @@
         .card {
             box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2), 5px 6px 20px rgba(0, 0, 0, 0.1);
         }
-
+        #logout {
+            /* margin-top: 300px; */
+        }
     
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -204,6 +206,11 @@
                     <a href="nilai.php?id=math" class="btn" >MATH</a>
             
                 </li>
+                <li>
+                    <div class="d-grid gap-2 col-6 mx-auto" id="logout">
+                        <button class="btn btn-success" type="button">LOGOUT</button>
+                    </div>
+                </li>
             </ul>
         </nav>
 
@@ -217,10 +224,10 @@
                     <span> </span>
                     <span> </span>
                 </a> -->
-                <div class="container">
+                <div class="container-fluid d-grid gap-2 d-md-flex justify-content-md-end">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-warning">
-                        <i class="fas fa-align-right"></i>
+                        <i class="fas fa-align-justify"></i>
                         <!-- <span>Toggle Sidebar</span> -->
                     </button>
 
@@ -243,6 +250,7 @@
             </div>
             <div class="card-body">
             <h3 class="card-title ">Input Nilai Murid</h5>
+            
             </div>
         </div>
     </div>
@@ -268,48 +276,63 @@
 
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
-                        <a class="btn btn-warning" data-toggle="collapse" href="#collapsetgsA" role="button" aria-expanded="false" aria-controls="collapsetgsA" id="konten">
+                        <a class="btn btn-warning" data-toggle="collapse" href="#<?php echo $name[1];?>tgs1" role="button" aria-expanded="false" aria-controls="collapsetgsA" id="konten">
                                 Tugas 1
                             </a>
-                            <div class="collapse" id="collapsetgsA">
+                            <div class="collapse" id="<?php echo $name[1];?>tgs1">
                                 <div class="card card-body">
                                     Input Nilai Disini
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <input class="btn btn-success" type="submit" value="Submit">
+                                    </div>
                                 </div>
                             </div>
                         
-                            <a class="btn btn-warning" data-toggle="collapse" href="#collapseTGS2A" role="button" aria-expanded="false" aria-controls="collapseTGS2A" id="konten">
+                            <a class="btn btn-warning" data-toggle="collapse" href="#<?php echo $name[1];?>tgs" role="button" aria-expanded="false" aria-controls="collapseTGS2A" id="konten">
                                 Tugas 2
                             </a>
-                            <div class="collapse" id="collapseTGS2A">
+                            <div class="collapse" id="<?php echo $name[1];?>tgs">
                                 <div class="card card-body" > 
                                     Input Nilai Disini
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <input class="btn btn-success" type="submit" value="Submit">
+                                    </div>
                                 </div>
                             </div>
 
-                            <a class="btn btn-warning" data-toggle="collapse" href="#collapseUTSA" role="button" aria-expanded="false" aria-controls="collapseUTSA" id="konten">
+                            <a class="btn btn-warning" data-toggle="collapse" href="#<?php echo $name[1];?>uts" role="button" aria-expanded="false" aria-controls="collapseUTSA" id="konten">
                             UTS
                             </a>
-                            <div class="collapse" id="collapseUTSA">
+                            <div class="collapse" id="<?php echo $name[1];?>uts">
                                 <div class="card card-body">
                                     Input Nilai Disini
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <input class="btn btn-success" type="submit" value="Submit">
+                                    </div>
                                 </div>
                             </div>
 
-                            <a class="btn btn-warning" data-toggle="collapse" href="#collapseUASA" role="button" aria-expanded="false" aria-controls="collapseUASA" id="konten">
+                            <a class="btn btn-warning" data-toggle="collapse" href="#<?php echo $name[1];?>uas" role="button" aria-expanded="false" aria-controls="collapseUASA" id="konten">
                                 UAS
                             </a>
-                            <div class="collapse" id="collapseUASA">
+                            <div class="collapse" id="<?php echo $name[1];?>uas">
                                 <div class="card card-body">
                                     Input Nilai Disini
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <input class="btn btn-success" type="submit" value="Submit">
+                                    </div>
                                 </div>
                             </div>
 
-                            <a class="btn btn-warning" data-toggle="collapse" href="#collapsePrakA" role="button" aria-expanded="false" aria-controls="collapsePrakA" id="konten">
+                            <a class="btn btn-warning" data-toggle="collapse" href="#<?php echo $name[1];?>prak" role="button" aria-expanded="false" aria-controls="collapsePrakA" id="konten">
                                 Praktikum
                             </a>
-                            <div class="collapse" id="collapsePrakA">
+                            <div class="collapse" id="<?php echo $name[1];?>prak">
                                 <div class="card card-body">
                                     Input Nilai Disini
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <input class="btn btn-success" type="submit" value="Submit">
+                                    </div>
                                 </div>
                             </div>
                         </div>

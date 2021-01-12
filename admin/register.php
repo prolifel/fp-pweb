@@ -54,13 +54,14 @@
                         ?>
                             <script>
                                 alert("Anda terverifikasi sebagai manusia");
+                                window.location = '../landing.php';
                             </script>
                         <?php
                     }else{
                         ?>
                             <script>
                                 alert("Foto tidak terverifikasi sebagai manusia. Silakan coba lagi!");
-                                window.location = 'formRegisterMurid.php'
+                                window.location = 'formRegisterMurid.php';
                             </script>
                         <?php
                         $register = 0;
@@ -70,7 +71,7 @@
                     ?>
                         <script>
                             alert("Maaf ada error dalam upload file.");
-                            window.location = 'formRegisterMurid.php'
+                            window.location = 'formRegisterMurid.php';
                         </script>
                     <?php
                     $register = 0;
@@ -103,13 +104,14 @@
     }
 
     if($result){
-        // TODO: Redirect ke home masing" role
-        $_SESSION['role'] = $role;
+        // Redirect ke home terlebih dahulu
+        header("Location: ../landing.php?msg=registed");
         exit();
     }else{
         ?>
             <script>
                 alert("Gagal mendaftar. Silakan coba lagi");
+                window.location = '../landing.php'
             </script>
         <?php
     }

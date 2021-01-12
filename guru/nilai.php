@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    $loginFlag = false;
+    if(isset($_SESSION['id'])){
+        if($_SESSION['role'] == 1){
+            $loginFlag = true;
+        }
+    }
+    if($loginFlag == false) {
+        header("Location: ../landing.php?msg=notlogin");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -222,7 +235,7 @@
             if(isset($_GET)){
                 $matkul = $_GET['id'];
             }
-        ?>
+    ?>
     <div class="container" id="judul">
         <div class="card text-black bg-warning mb-3" style="max-width: 25rem;">
         <div class="card-header">
@@ -238,7 +251,6 @@
     <div class="container" id="panel">
     
     <div id="accordion">
-        
         <div class="card bg-dark" style="max-width: 19rem;">
             <div class="card-header" id="headingOne">
             <h5 class="mb-0">
@@ -300,7 +312,7 @@
         
         <br>
         
-        <div class="card bg-dark" style="max-width: 19rem;">
+        <!-- <div class="card bg-dark" style="max-width: 19rem;">
             <div class="card-header" id="headingTwo" >
             <h5 class="mb-0">
                 <button class="btn collapsed text-white" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -357,11 +369,11 @@
            
             </div>
             </div>
-        </div>
+        </div> -->
         
         <br>
         
-        <div class="card bg-dark" style="max-width: 19rem;">
+        <!-- <div class="card bg-dark" style="max-width: 19rem;">
             <div class="card-header" id="headingThree">
             <h5 class="mb-0">
                 <button class="btn btn collapsed text-white" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -417,7 +429,7 @@
                 </div>
             </div>
             </div>
-        </div>
+        </div> -->
         
     </div>
     </div>

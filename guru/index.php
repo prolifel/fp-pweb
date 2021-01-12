@@ -1,10 +1,23 @@
+<?php
+    session_start();
+    $loginFlag = false;
+    if(isset($_SESSION['id']) & isset($_SESSION['role'])){
+        if($_SESSION['role'] == 1){
+            $loginFlag = true;
+        }
+    }
+    if($loginFlag == false) {
+        header("Location: ../landing.php?msg=notlogin");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Homepage</title>
+    <title>Homepage | GURU</title>
     <style>
         body {
             min-height: 75rem;

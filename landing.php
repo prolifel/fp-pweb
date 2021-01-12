@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    $loginFlag = false;
+    if(isset($_SESSION['id']) & isset($_SESSION['role'])){
+        $loginFlag = true;
+    }
+    if($loginFlag == true) {
+        // header("Location: ../landing.php?msg=notlogin");
+        // exit();
+        echo "Already Logged In";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,10 +175,21 @@
     </nav>
     <!--  -->
     <!-- <div class="container-fluid"> -->
-        <div class="d-flex justify-content-center">
-        
-            
+        <div class="d-flex justify-content-center">            
             <?php
+                if($loginFlag){
+                    ?>
+                    <a href="./admin/logout.php">LOGOUT</a>
+                    <?php
+                }
+                if(isset($_GET['msg'])){
+                    if($_GET['msg'] == "registed"){
+                        echo "Register Succes <br> Try to Loggin In";
+                    }
+                    if($_GET['msg'] == "notlogin"){
+                        echo "User Not Loged In";
+                    }
+                }
                 include './admin/formLogin.php';
             ?>
             

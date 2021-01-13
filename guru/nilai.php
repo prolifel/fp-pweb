@@ -29,21 +29,6 @@
             background-position: center;
         }
         
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-            }
-        }
-
         .wrapper {
            display: inline-flex;
             align-items: stretch;
@@ -55,19 +40,20 @@
         } */
 
         #sidebar {
-            padding-top: 55px;
-            width: 250px;
+            padding-top: 37px;
+            width: 249px;
             max-width: 250px;
             height: 100vh;
-            background: #f0ad4e;
+            background: #dfdfdf;
             color: #FFF;
             transition: all 0.3s;
-            /* position: fixed; */
+            position: fixed;
             z-index: 999;
+            margin-left: -250px;
         }
 
         #sidebar.active {
-            margin-left: -250px;
+            margin-left: 0px;
         }
         a[data-toggle="collapse"] {
             position: relative;
@@ -109,7 +95,7 @@
         }
 
         #sidebar ul li a {
-            padding: 10px;
+            padding: 20px;
             font-size: 1.1em;
             display: block;
             color: black;
@@ -129,13 +115,13 @@
             background: #6d7fcc;
         }
         #judul {
-            padding-left: 100px;
+            padding-left: 190px;
             padding-top: 100px;
             display: inline-table;
             position: absolute;
         }
         #panel {
-            padding-left: 100px;
+            padding-left: 190px;
             display: inline-block;
             padding-top: 350px;
             position: absolute;
@@ -147,9 +133,43 @@
         .card {
             box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2), 5px 6px 20px rgba(0, 0, 0, 0.1);
         }
-        #logout {
-            /* margin-top: 300px; */
+        .overlay {
+            display: none;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
         }
+       
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        #dismiss {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            /* top right corner of the sidebar */
+            top: 10px;
+            right: 10px;
+        }
+        #logout{
+            margin-top: 20px;
+            box-shadow: 3px 4px 8px rgba(50,205,50, 0.4), 5px 6px 20px rgba(50,205,50, 0.3);
+            padding: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .btn-logout{
+            padding-left: 25%;
+            padding-right: 25%;
+            align-items: center;
+        }
+        
     
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -207,8 +227,8 @@
             
                 </li>
                 <li>
-                    <div class="d-grid gap-2 col-6 mx-auto" id="logout">
-                        <button class="btn btn-success" type="button" onclick="location.href='../admin/logout.php';">LOGOUT</button>
+                    <div class="btn-logout">
+                        <button id="logout" class="btn btn-success" type="button" onclick="location.href='../admin/logout.php';">LOGOUT</button>
                     </div>
                 </li>
             </ul>
@@ -234,7 +254,7 @@
                 </div>
             </nav>
         </div>
-
+        <div class="overlay"></div>
     </div>
         
     <?php
@@ -366,11 +386,24 @@
             });
         });
         $(document).ready(function () {
+            
+
 
             $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
+                // open sidebar
+                $('#sidebar').addClass('active');
+                // fade in the overlay
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
-
+            
+            $('#dismiss, .overlay').on('click', function () {
+                // hide sidebar
+                $('#sidebar').removeClass('active');
+                // hide overlay
+                $('.overlay').removeClass('active');
+            });
         });
     </script>
 </body>

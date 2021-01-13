@@ -1,8 +1,7 @@
-<?php
-    session_start();
+<?php session_start();
     $loginFlag = false;
     if(isset($_SESSION['id']) & isset($_SESSION['role'])){
-        if($_SESSION['role'] == 1){
+        if($_SESSION['role'] == 2){
             $loginFlag = true;
         }
     }

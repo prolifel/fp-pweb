@@ -127,7 +127,7 @@
                         <div class="line"></div>
                     </div>
                 </label>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="inputRole" class="radio-label">Login Sebagai: </label>
                     <br>
                     <div class="form-check form-check-inline">
@@ -142,7 +142,7 @@
                         <input class="form-check-input" type="radio" name="role" id="inlineRadio3" value="2">
                         <label class="form-check-label" for="inlineRadio3">Murid</label>
                     </div>
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-success">Login</button>
             </form>
         </div>

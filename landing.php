@@ -9,7 +9,7 @@
             header("Location: ./guru/index.php");
             exit();
         } elseif ($_SESSION['role']==2) {
-            header("Location: ./guru/index.php");
+            header("Location: ./murid2/index.php");
             exit();
         }
     }

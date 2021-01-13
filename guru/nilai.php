@@ -293,13 +293,13 @@
                     <div class="card bg-dark" style="max-width: 19rem;">
                         <div class="card-header" id="headingOne">
                             <h5 class="mb-0">
-                                <button class="btn collapsed text-white" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn collapsed text-white" data-toggle="collapse" data-target="#<?php echo $name[1];?>" aria-expanded="true" aria-controls="collapseOne">
                                     <?php echo $name[1];?>
                                 </button>
                             </h5>
                         </div>
                         <form action="uploadNilai.php?id=<?php echo $name[0];?>&idg=<?php echo $_SESSION['id'];?>&mp=<?php echo $matkul;?>" method="POST">
-                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div id="<?php echo $name[1];?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
                                     <a class="btn btn-warning" data-toggle="collapse" href="#<?php echo $name[1];?>tgs1" role="button" aria-expanded="false" aria-controls="collapsetgsA" id="konten">
                                         Tugas 1

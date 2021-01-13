@@ -289,6 +289,11 @@
             $res = getMurid($_SESSION['id']);
             while($name = mysqli_fetch_array($res)){
                 // echo "Nama ".$name[1];
+                $resNilai = getNilaiSiswa($name[0], $_SESSION['id'], $matkul);
+                $nilai = null;
+                if($resNilai!=null){
+                    $nilai = mysqli_fetch_array($resNilai);
+                }
                 ?>
                     <div class="card bg-dark" style="max-width: 19rem;">
                         <div class="card-header" id="headingOne">
@@ -306,7 +311,7 @@
                                     </a>
                                     <div class="collapse" id="<?php echo $name[1];?>tgs1">
                                         <div class="card card-body">
-                                            <input type="text" name="tugas1" placeholder="Input Nilai Disini">
+                                            <input type="text" name="tugas1" placeholder="Input Nilai Disini" <?php if($nilai!=null)echo "value='".$nilai[0]."'"?>>
                                             <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                 <input class="btn btn-success" type="submit" value="Submit">
                                             </div> -->
@@ -319,7 +324,7 @@
                                     </a>
                                     <div class="collapse" id="<?php echo $name[1];?>tgs">
                                         <div class="card card-body" > 
-                                        <input type="text" name="tugas2" placeholder="Input Nilai Disini">
+                                        <input type="text" name="tugas2" placeholder="Input Nilai Disini" <?php if($nilai!=null)echo "value='".$nilai[1]."'"?>>
                                             <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                 <input class="btn btn-success" type="submit" value="Submit">
                                             </div> -->
@@ -332,7 +337,7 @@
                                     </a>
                                     <div class="collapse" id="<?php echo $name[1];?>uts">
                                         <div class="card card-body">
-                                        <input type="text" name="uts" placeholder="Input Nilai Disini">
+                                        <input type="text" name="uts" placeholder="Input Nilai Disini" <?php if($nilai!=null)echo "value='".$nilai[2]."'"?>>
                                             <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                 <input class="btn btn-success" type="submit" value="Submit">
                                             </div> -->
@@ -344,7 +349,7 @@
                                     </a>
                                     <div class="collapse" id="<?php echo $name[1];?>uas">
                                         <div class="card card-body">
-                                        <input type="text" name="uas" placeholder="Input Nilai Disini">
+                                        <input type="text" name="uas" placeholder="Input Nilai Disini" <?php if($nilai!=null)echo "value='".$nilai[3]."'"?>>
                                             <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                 <input class="btn btn-success" type="submit" value="Submit">
                                             </div> -->
@@ -356,7 +361,7 @@
                                     </a>
                                     <div class="collapse" id="<?php echo $name[1];?>prak">
                                         <div class="card card-body">
-                                        <input type="text" name="prak" placeholder="Input Nilai Disini">
+                                        <input type="text" name="prak" placeholder="Input Nilai Disini" <?php if($nilai!=null)echo "value='".$nilai[4]."'"?>>
                                             <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                 <input class="btn btn-success" type="submit" value="Submit">
                                             </div> -->

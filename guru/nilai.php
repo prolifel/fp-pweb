@@ -156,9 +156,10 @@
             top: 10px;
             right: 10px;
         }
-        /* #logout {
-           padding-top: 100px;
-        } */
+        #logout{
+            margin-top: 10px;
+            box-shadow: 3px 4px 8px rgba(50,205,50, 0.4), 5px 6px 20px rgba(50,205,50, 0.3);
+        }
     
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -222,8 +223,8 @@
             
                 </li>
                 <li>
-                    <div class="d-grid gap-2 col-6 mx-auto" id="logout">
-                        <button class="btn btn-success" type="button" onclick="location.href='../admin/logout.php';">LOGOUT</button>
+                    <div class="d-grid gap-2 col-6 mx-auto" >
+                        <button id="logout" class="btn btn-success" type="button" onclick="location.href='../admin/logout.php';">LOGOUT</button>
                     </div>
                 </li>
             </ul>

@@ -8,4 +8,8 @@
         }
         return null;
     }
+
+    function getName($idSiswa){
+        
+    }
 ?>

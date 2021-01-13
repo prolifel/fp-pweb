@@ -1,15 +1,29 @@
+<?php
+    session_start();
+    $loginFlag = false;
+    if(isset($_SESSION['id']) & isset($_SESSION['role'])){
+        if($_SESSION['role'] == 1){
+            $loginFlag = true;
+        }
+    }
+    if($loginFlag == false) {
+        header("Location: ../landing.php?msg=notlogin");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Homepage</title>
+    <title>Homepage | GURU</title>
     <style>
         body {
             min-height: 75rem;
+            padding-top: 6rem;
             background-color: rgb(232, 235, 238); 
-            background-image: url("../assets/bgnilai.png");
+            background-image: url("../assets/bgguru.png");
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-size: cover;
@@ -31,124 +45,29 @@
             }
         }
 
-        .wrapper {
-           display: inline-flex;
-            align-items: stretch;
-            position: relative;
-        }
-        /* .wrapper {
-            display: flex;
-            align-items: stretch;
-        } */
-
-        #sidebar {
-            padding-top: 55px;
-            width: 250px;
-            max-width: 250px;
-            height: 100vh;
-            background: #f0ad4e;
-            color: #FFF;
-            transition: all 0.3s;
-            /* position: fixed; */
-            z-index: 999;
-        }
-
-        #sidebar.active {
-            margin-left: -250px;
-        }
-        a[data-toggle="collapse"] {
-            position: relative;
-        }
-
-        .dropdown-toggle::after {
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-        @media (max-width: 768px) {
-            #sidebar {
-                margin-left: -250px;
-            }
-            #sidebar.active {
-                margin-left: 0;
-            }
-        }
-        a, a:hover, a:focus {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        #sidebar .sidebar-header {
-            padding: 20px;
-            background: #6d7fcc;
-        }
-
-        #sidebar ul.components {
-            padding: 20px 0;
-            /* //border-bottom: 1px solid #47748b; */
-        }
-
-        #sidebar ul p {
-            color: black;
-            padding: 10px;
-        }
-
-        #sidebar ul li a {
-            padding: 10px;
-            font-size: 1.1em;
-            display: block;
-            color: black;
-        }
-        #sidebar ul li a:hover {
-            color: #FFF;
-            background: #292b2c;
-        }
-
-        #sidebar ul li.active > a, a[aria-expanded="true"] {
-            color: #fff;
-            background: #6d7fcc;
-        }
-        ul ul a {
-            font-size: 0.9em !important;
-            padding-left: 30px !important;
-            background: #6d7fcc;
-        }
-        #judul {
-            padding-left: 100px;
-            padding-top: 100px;
-            display: inline-table;
-            position: absolute;
-        }
-        #panel {
-            padding-left: 100px;
-            display: inline-block;
-            padding-top: 350px;
-            position: absolute;
-            overflow: auto;
-        }
-        #konten {
-            margin-bottom: 7px;
-        }
         .card {
             box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2), 5px 6px 20px rgba(0, 0, 0, 0.1);
         }
-
-        i {
-           text-align: right;
+        .card-img-top{
+            height: 215px;
+            width: 500px;
         }
+        #contain {
+            margin-top: 5%;
+            margin-left: 20%;
+            align-items: center;
+        }
+        .btn {
+            box-shadow: 3px 4px 8px rgba(255,165,0, 0.4), 5px 6px 20px rgba(255,165,0, 0.3);
+        }
+        
+        
     </style>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
-    <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand" href="landing.php">e-Rapor</a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="index.php">e-Rapor</a>
 
         <a class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
             <span> </span>
@@ -160,269 +79,72 @@
             <ul class="navbar-nav mr-auto">
             
             </ul>
-            
-            
+            <!-- dikanan -->
+            <a class="btn btn-warning my-2 my-sm-0 mx-4" type="button" href="../admin/logout.php">Logout</a>
         
         </div>
-    </nav>  -->
-<div class="wrapper">
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header bg-dark">
-                <h3>Hai, Murid!</h3>
-            </div>
-
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="nilai.php?id=biologi" class="btn">BIOLOGI</a>
-                    
-                </li>
-                
-                <li>
-                    <a href="nilai.php?id=fisika" class="btn">FISIKA</a>
-                    
-                </li>
-
-                <li>
-                    <a href="nilai.php?id=kimia" class="btn">KIMIA</a>
-                
-                </li>
-
-                <li>
-            
-                    <a href="nilai.php?id=math" class="btn" >MATH</a>
-            
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Page Content -->
-        <div id="content">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand" href="landing.php">e-Rapor</a>
-
-                <!-- <a class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                    <span> </span>
-                    <span> </span>
-                    <span> </span>
-                </a> -->
-                <div class="container float-right">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-warning ">
-                        <i class="fa fa-align-justify"></i>
-                        <!-- <span>Toggle Sidebar</span> -->
-                    </button>
-
-                </div>
-            </nav>
-        </div>
-
-    </div>
-        
-    <?php
-            $matkul = null;
-            if(isset($_GET)){
-                $matkul = $_GET['id'];
-            }
-        ?>
-    <div class="container" id="judul">
-        <div class="card text-black bg-warning mb-3" style="max-width: 25rem;">
-        <div class="card-header">
-        <h3 class="display-4 text-center"><?php echo $matkul;?></h3>
+    </nav>
+    
+    <div class="container">
+        <div class="card text-black bg-warning mb-3">
+            <div class="card-header">
+                <h5>Hai, *nama murid*</h5>
             </div>
             <div class="card-body">
-            <h3 class="card-title ">Input Nilai Murid</h5>
+            <h3 class="card-title">Nilai</h5>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
             </div>
+        </div>
+    </div>
+<br>
+<br>
+  <div class="container-fluid d-flex justify-content-center" id="">
+      
+    <div class="row card-columns" >
+        <div class="card col-4" style="max-width: 19rem;">
+                <img class="card-img-top" src="../assets/bio.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">BIOLOGI</h5>
+                    <p class="card-text">Jam 14:00 - 15:50</p>
+                    <form action="nilai.php" method="get">
+                        <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="biologi">Input Nilai</button>
+                    </form>
+                </div>
+            </div>
+        <div class="card col-4" style="max-width: 19rem;">
+            <img class="card-img-top" src="../assets/fisik.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">FISIKA</h5>
+                <p class="card-text">Jam 15:50 - 18:50</p>
+                <form action="nilai.php" method="get">
+                    <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="fisika">Input Nilai</button>
+                </form>
+            </div>
+        </div>
+        <div class="card col-4" style="max-width: 19rem;">
+            <img class="card-img-top" src="../assets/kimia.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">KIMIA</h5>
+                <p class="card-text">Jam 19:00 - 20:50</p>
+                <form action="nilai.php" method="get">
+                    <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="kimia">Input Nilai</button>
+                </form>
+            </div>
+        </div>
+        <div class="card col-4" style="max-width: 19rem;">
+                <img class="card-img-top" src="../assets/math12.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">MATEMATIKA</h5>
+                    <p class="card-text">Jam 14:00 - 15:50</p>
+                    <form action="nilai.php" method="get">
+                        <button type="submit" class="btn btn-warning btn-lg btn-block" name="id" value="math">Input Nilai</button>
+                    </form>
+                </div>
         </div>
     </div>
     
-   
-    <div class="container" id="panel">
-    
-    <div id="accordion">
-        
-        <div class="card bg-dark" style="max-width: 19rem;">
-            <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-                <button class="btn collapsed text-white" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Naufal Rafi Akbar H.
-                </button>
-            </h5>
-            </div>
-
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-            <a class="btn btn-warning" data-toggle="collapse" href="#collapsetgsA" role="button" aria-expanded="false" aria-controls="collapsetgsA" id="konten">
-                    Tugas 1
-                </a>
-                <div class="collapse" id="collapsetgsA">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-            
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseTGS2A" role="button" aria-expanded="false" aria-controls="collapseTGS2A" id="konten">
-                    Tugas 2
-                </a>
-                <div class="collapse" id="collapseTGS2A">
-                    <div class="card card-body" > 
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUTSA" role="button" aria-expanded="false" aria-controls="collapseUTSA" id="konten">
-                   UTS
-                </a>
-                <div class="collapse" id="collapseUTSA">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUASA" role="button" aria-expanded="false" aria-controls="collapseUASA" id="konten">
-                    UAS
-                </a>
-                <div class="collapse" id="collapseUASA">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapsePrakA" role="button" aria-expanded="false" aria-controls="collapsePrakA" id="konten">
-                    Praktikum
-                </a>
-                <div class="collapse" id="collapsePrakA">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        
-        <br>
-        
-        <div class="card bg-dark" style="max-width: 19rem;">
-            <div class="card-header" id="headingTwo" >
-            <h5 class="mb-0">
-                <button class="btn collapsed text-white" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Clement Prolifel
-                </button>
-            </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapsetgsB" role="button" aria-expanded="false" aria-controls="collapsetgsB" id="konten">
-                    Tugas 1
-                </a>
-                <div class="collapse" id="collapsetgsB">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-            
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseTGS2B" role="button" aria-expanded="false" aria-controls="collapseTGS2B" id="konten">
-                    Tugas 2
-                </a>
-                <div class="collapse" id="collapseTGS2B">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUTSB" role="button" aria-expanded="false" aria-controls="collapseUTSB" id="konten">
-                   UTS
-                </a>
-                <div class="collapse" id="collapseUTSB">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUASB" role="button" aria-expanded="false" aria-controls="collapseUASB" id="konten">
-                    UAS
-                </a>
-                <div class="collapse" id="collapseUASB">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapsePrakB" role="button" aria-expanded="false" aria-controls="collapsePrakB" id="konten">
-                    Praktikum
-                </a>
-                <div class="collapse" id="collapsePrakB">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-           
-            </div>
-            </div>
-        </div>
-        
-        <br>
-        
-        <div class="card bg-dark" style="max-width: 19rem;">
-            <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn btn collapsed text-white" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Edo Yogatama
-                </button>
-            </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-            <a class="btn btn-warning" data-toggle="collapse" href="#collapsetgsC" role="button" aria-expanded="false" aria-controls="collapsetgsC" id="konten">
-                    Tugas 1
-                </a>
-                <div class="collapse" id="collapsetgsC">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-            
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseTGS2C" role="button" aria-expanded="false" aria-controls="collapseTGS2C" id="konten">
-                    Tugas 2
-                </a>
-                <div class="collapse" id="collapseTGS2C">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUTSC" role="button" aria-expanded="false" aria-controls="collapseUTSC" id="konten">
-                   UTS
-                </a>
-                <div class="collapse" id="collapseUTSC">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUASC" role="button" aria-expanded="false" aria-controls="collapseUASC" id="konten">
-                    UAS
-                </a>
-                <div class="collapse" id="collapseUASC">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapsePrakC" role="button" aria-expanded="false" aria-controls="collapsePrakC" id="konten">
-                    Praktikum
-                </a>
-                <div class="collapse" id="collapsePrakC">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        
     </div>
-    </div>
+  
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
     <script src="./js/bootstrap.bundle.min.js"></script>
@@ -437,13 +159,6 @@
                     $(this).text(Math.ceil(now));
                 }
             });
-        });
-        $(document).ready(function () {
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-
         });
     </script>
 </body>

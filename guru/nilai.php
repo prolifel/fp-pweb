@@ -157,8 +157,11 @@
             right: 10px;
         }
         #logout{
-            margin-top: 10px;
+            margin-top: 15px;
             box-shadow: 3px 4px 8px rgba(50,205,50, 0.4), 5px 6px 20px rgba(50,205,50, 0.3);
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
     
     </style>
@@ -199,6 +202,7 @@
                 <div id="dismiss">
                 <i class="fas fa-arrow-left"></i>
             </div>
+            
             </div>
 
             <ul class="list-unstyled components">

@@ -28,49 +28,32 @@
             background-size: cover;
             background-position: center;
         }
-        
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-            }
-        }
 
         .wrapper {
            display: inline-flex;
             align-items: stretch;
-            position: relative;
+           
         }
-        /* .wrapper {
-            display: flex;
-            align-items: stretch;
-        } */
-
         #sidebar {
             padding-top: 55px;
-            width: 250px;
-            max-width: 250px;
+            width: 249px;
+            position: fixed;
+            top: 0;
+            left: 0;
             height: 100vh;
-            background: #f0ad4e;
-            color: #FFF;
-            transition: all 0.3s;
-            /* position: fixed; */
             z-index: 999;
+            background: #dcdcdc;
+            color: #fff;
+            transition: all 0.3s;
+            margin-left: -250px;
         }
 
         #sidebar.active {
-            margin-left: -250px;
+            margin-left: 0px;
         }
         a[data-toggle="collapse"] {
-            position: relative;
+            position: fixed;
         }
 
         .dropdown-toggle::after {
@@ -86,6 +69,7 @@
             }
             #sidebar.active {
                 margin-left: 0;
+                
             }
         }
         a, a:hover, a:focus {
@@ -94,8 +78,9 @@
             transition: all 0.3s;
         }
         #sidebar .sidebar-header {
+            align-items: center;
             padding: 20px;
-            background: #6d7fcc;
+            /* background: #6d7fcc; */
         }
 
         #sidebar ul.components {
@@ -109,7 +94,7 @@
         }
 
         #sidebar ul li a {
-            padding: 10px;
+            padding: 20px;
             font-size: 1.1em;
             display: block;
             color: black;
@@ -129,13 +114,13 @@
             background: #6d7fcc;
         }
         #judul {
-            padding-left: 100px;
+            padding-left: 190px;
             padding-top: 100px;
             display: inline-table;
             position: absolute;
         }
         #panel {
-            padding-left: 100px;
+            padding-left: 190px;
             display: inline-block;
             padding-top: 350px;
             position: absolute;
@@ -147,14 +132,40 @@
         .card {
             box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2), 5px 6px 20px rgba(0, 0, 0, 0.1);
         }
-        #logout {
-            /* margin-top: 300px; */
+        .overlay {
+            display: none;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
         }
+       
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        #dismiss {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            /* top right corner of the sidebar */
+            top: 10px;
+            right: 10px;
+        }
+        /* #logout {
+           padding-top: 100px;
+        } */
     
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -181,8 +192,12 @@
 <div class="wrapper">
         <!-- Sidebar -->
         <nav id="sidebar">
-            <div class="sidebar-header bg-dark">
+
+            <div class="sidebar-header bg-dark justify-center">
                 <h3>Hai, Guru!</h3>
+                <div id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
             </div>
 
             <ul class="list-unstyled components">
@@ -234,7 +249,7 @@
                 </div>
             </nav>
         </div>
-
+        <div class="overlay"></div>
     </div>
         
     <?php
@@ -348,6 +363,13 @@
                 <?php
             }
         ?>
+<<<<<<< HEAD
+=======
+        
+        <br>
+        
+        
+>>>>>>> a057ba2077bac1a7609754f420023e6ff4edc6cb
     </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -365,12 +387,48 @@
                 }
             });
         });
+        // $(document).ready(function () {
+
+        //     $('#sidebarCollapse').on('click', function () {
+        //         $('#sidebar').toggleClass('active');
+        //     });
+
+        // });
+        // $(document).ready(function () {
+
+        //     // $("#sidebar").mCustomScrollbar({
+        //     //     theme: "minimal"
+        //     // });
+
+        //     $('#sidebarCollapse').on('click', function () {
+        //         $('#sidebar').toggleClass('active');
+        //         // close dropdowns
+        //         $('.collapse.in').toggleClass('in');
+        //         // and also adjust aria-expanded attributes we use for the open/closed arrows
+        //         // in our CSS
+        //         $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        //     });
+
+        // });
         $(document).ready(function () {
+            
+
 
             $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
+                // open sidebar
+                $('#sidebar').addClass('active');
+                // fade in the overlay
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
-
+            
+            $('#dismiss, .overlay').on('click', function () {
+                // hide sidebar
+                $('#sidebar').removeClass('active');
+                // hide overlay
+                $('.overlay').removeClass('active');
+            });
         });
     </script>
 </body>

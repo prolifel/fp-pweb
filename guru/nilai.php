@@ -28,49 +28,32 @@
             background-size: cover;
             background-position: center;
         }
-        
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-            }
-        }
 
         .wrapper {
            display: inline-flex;
             align-items: stretch;
-            position: relative;
+           
         }
-        /* .wrapper {
-            display: flex;
-            align-items: stretch;
-        } */
-
         #sidebar {
             padding-top: 55px;
-            width: 250px;
-            max-width: 250px;
-            height: 279vh;
-            background: #f0ad4e;
-            color: #FFF;
-            transition: all 0.3s;
-            /* position: fixed; */
+            width: 249px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
             z-index: 999;
+            background: #dcdcdc;
+            color: #fff;
+            transition: all 0.3s;
+            margin-left: -250px;
         }
 
         #sidebar.active {
-            margin-left: -250px;
+            margin-left: 0px;
         }
         a[data-toggle="collapse"] {
-            position: relative;
+            position: fixed;
         }
 
         .dropdown-toggle::after {
@@ -86,6 +69,7 @@
             }
             #sidebar.active {
                 margin-left: 0;
+                
             }
         }
         a, a:hover, a:focus {
@@ -94,8 +78,9 @@
             transition: all 0.3s;
         }
         #sidebar .sidebar-header {
+            align-items: center;
             padding: 20px;
-            background: #6d7fcc;
+            /* background: #6d7fcc; */
         }
 
         #sidebar ul.components {
@@ -129,13 +114,13 @@
             background: #6d7fcc;
         }
         #judul {
-            padding-left: 100px;
+            padding-left: 190px;
             padding-top: 100px;
             display: inline-table;
             position: absolute;
         }
         #panel {
-            padding-left: 100px;
+            padding-left: 190px;
             display: inline-block;
             padding-top: 350px;
             position: absolute;
@@ -147,14 +132,40 @@
         .card {
             box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2), 5px 6px 20px rgba(0, 0, 0, 0.1);
         }
-        #logout {
-            /* margin-top: 300px; */
+        .overlay {
+            display: none;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
         }
+       
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        #dismiss {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            /* top right corner of the sidebar */
+            top: 10px;
+            right: 10px;
+        }
+        /* #logout {
+           padding-top: 100px;
+        } */
     
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -181,8 +192,12 @@
 <div class="wrapper">
         <!-- Sidebar -->
         <nav id="sidebar">
-            <div class="sidebar-header bg-dark">
+
+            <div class="sidebar-header bg-dark justify-center">
                 <h3>Hai, Guru!</h3>
+                <div id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
             </div>
 
             <ul class="list-unstyled components">
@@ -207,7 +222,7 @@
             
                 </li>
                 <li>
-                    <div class="d-grid gap-2 col-6 mx-auto" id="logout">
+                    <div class=" col-6 mx-auto " id="logout">
                         <button class="btn btn-success" type="button">LOGOUT</button>
                     </div>
                 </li>
@@ -217,7 +232,7 @@
         <!-- Page Content -->
         <div id="content">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand" href="landing.php">e-Rapor</a>
+            <a class="navbar-brand" href="landing.php">e-Rapor</a>
 
                 <!-- <a class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                     <span> </span>
@@ -234,7 +249,7 @@
                 </div>
             </nav>
         </div>
-
+        <div class="overlay"></div>
     </div>
         
     <?php
@@ -342,124 +357,9 @@
                 <?php
             }
         ?>
-        <!-- <div class="card bg-dark" style="max-width: 19rem;">
-            <div class="card-header" id="headingTwo" >
-            <h5 class="mb-0">
-                <button class="btn collapsed text-white" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Clement Prolifel
-                </button>
-            </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapsetgsB" role="button" aria-expanded="false" aria-controls="collapsetgsB" id="konten">
-                    Tugas 1
-                </a>
-                <div class="collapse" id="collapsetgsB">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-            
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseTGS2B" role="button" aria-expanded="false" aria-controls="collapseTGS2B" id="konten">
-                    Tugas 2
-                </a>
-                <div class="collapse" id="collapseTGS2B">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUTSB" role="button" aria-expanded="false" aria-controls="collapseUTSB" id="konten">
-                   UTS
-                </a>
-                <div class="collapse" id="collapseUTSB">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUASB" role="button" aria-expanded="false" aria-controls="collapseUASB" id="konten">
-                    UAS
-                </a>
-                <div class="collapse" id="collapseUASB">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapsePrakB" role="button" aria-expanded="false" aria-controls="collapsePrakB" id="konten">
-                    Praktikum
-                </a>
-                <div class="collapse" id="collapsePrakB">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-           
-            </div>
-            </div>
-        </div> -->
         
         <br>
         
-        <!-- <div class="card bg-dark" style="max-width: 19rem;">
-            <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn btn collapsed text-white" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Edo Yogatama
-                </button>
-            </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-            <a class="btn btn-warning" data-toggle="collapse" href="#collapsetgsC" role="button" aria-expanded="false" aria-controls="collapsetgsC" id="konten">
-                    Tugas 1
-                </a>
-                <div class="collapse" id="collapsetgsC">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-            
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseTGS2C" role="button" aria-expanded="false" aria-controls="collapseTGS2C" id="konten">
-                    Tugas 2
-                </a>
-                <div class="collapse" id="collapseTGS2C">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUTSC" role="button" aria-expanded="false" aria-controls="collapseUTSC" id="konten">
-                   UTS
-                </a>
-                <div class="collapse" id="collapseUTSC">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapseUASC" role="button" aria-expanded="false" aria-controls="collapseUASC" id="konten">
-                    UAS
-                </a>
-                <div class="collapse" id="collapseUASC">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-
-                <a class="btn btn-warning" data-toggle="collapse" href="#collapsePrakC" role="button" aria-expanded="false" aria-controls="collapsePrakC" id="konten">
-                    Praktikum
-                </a>
-                <div class="collapse" id="collapsePrakC">
-                    <div class="card card-body">
-                        Input Nilai Disini
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div> -->
         
     </div>
     </div>
@@ -478,12 +378,48 @@
                 }
             });
         });
+        // $(document).ready(function () {
+
+        //     $('#sidebarCollapse').on('click', function () {
+        //         $('#sidebar').toggleClass('active');
+        //     });
+
+        // });
+        // $(document).ready(function () {
+
+        //     // $("#sidebar").mCustomScrollbar({
+        //     //     theme: "minimal"
+        //     // });
+
+        //     $('#sidebarCollapse').on('click', function () {
+        //         $('#sidebar').toggleClass('active');
+        //         // close dropdowns
+        //         $('.collapse.in').toggleClass('in');
+        //         // and also adjust aria-expanded attributes we use for the open/closed arrows
+        //         // in our CSS
+        //         $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        //     });
+
+        // });
         $(document).ready(function () {
+            
+
 
             $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
+                // open sidebar
+                $('#sidebar').addClass('active');
+                // fade in the overlay
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
-
+            
+            $('#dismiss, .overlay').on('click', function () {
+                // hide sidebar
+                $('#sidebar').removeClass('active');
+                // hide overlay
+                $('.overlay').removeClass('active');
+            });
         });
     </script>
 </body>

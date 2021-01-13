@@ -58,7 +58,7 @@
             padding-top: 55px;
             width: 250px;
             max-width: 250px;
-            height: 100vh;
+            height: 279vh;
             background: #f0ad4e;
             color: #FFF;
             transition: all 0.3s;
@@ -109,7 +109,7 @@
         }
 
         #sidebar ul li a {
-            padding: 10px;
+            padding: 20px;
             font-size: 1.1em;
             display: block;
             color: black;

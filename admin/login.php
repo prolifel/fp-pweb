@@ -33,7 +33,7 @@
                 header("Location: ../guru/index.php");
                 exit;
             } else if($role == 2) {
-                header("Location: ../siswa/home.php");
+                header("Location: ../murid2/index.php");
                 exit;
             }
         } else {

@@ -203,7 +203,7 @@
                     $query = getAllScore($_SESSION['id'],2);
                     if($query!=null) $nilai = mysqli_fetch_assoc($query);
                 ?>
-                <div class="accordion" id="accordionExample">
+                <div class="accordion" id="accordionfis">
                         <div class="card bg-warning" id="crd">
                             <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
@@ -213,7 +213,7 @@
                             </h2>
                             </div>
 
-                            <div id="collapseOneb" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div id="collapseOneb" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionfis">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['tugas1'];?></h1>
                                 </div>
@@ -227,7 +227,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapseTwob" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div id="collapseTwob" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionfis">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['tugas2'];?></h1>
                                 </div>
@@ -241,7 +241,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapseThreeb" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapseThreeb" class="collapse" aria-labelledby="headingThree" data-parent="#accordionfis">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['uts'];?></h1>
                                 </div>
@@ -255,7 +255,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapsefourb" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapsefourb" class="collapse" aria-labelledby="headingThree" data-parent="#accordionfis">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['uas'];?></h1>
                                 </div>
@@ -264,12 +264,12 @@
                         <div class="card bg-warning" id="crd">
                             <div class="card-header" id="headingThree">
                             <h2 class="mb-0">
-                                <button class="btn btn-dark text-left collapsed" type="button" data-toggle="collapse" data-target="#collapsefiveb aria-expanded="false" aria-controls="collapseThree">
+                                <button class="btn btn-dark text-left collapsed" type="button" data-toggle="collapse" data-target="#collapsefiveb" aria-expanded="false" aria-controls="collapseThree">
                                 Praktikum
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapsefiveb" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapsefiveb" class="collapse" aria-labelledby="headingThree" data-parent="#accordionfis">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['praktikum'];?></h1>
                                 </div>
@@ -287,7 +287,7 @@
                     $query = getAllScore($_SESSION['id'],3);
                     if($query!=null) $nilai = mysqli_fetch_assoc($query);
                 ?>
-                <div class="accordion" id="accordionExample">
+                <div class="accordion" id="accordionkimia">
                         <div class="card bg-warning" id="crd">
                             <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
@@ -297,7 +297,7 @@
                             </h2>
                             </div>
 
-                            <div id="collapseOnec" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div id="collapseOnec" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionkimia">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['tugas1'];?></h1>
                                 </div>
@@ -311,7 +311,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapseTwoc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div id="collapseTwoc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionkimia">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['tugas2'];?></h1>
                                 </div>
@@ -325,7 +325,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapseThreec" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapseThreec" class="collapse" aria-labelledby="headingThree" data-parent="#accordionkimia">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['uts'];?></h1>
                                 </div>
@@ -339,7 +339,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapsefourc" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapsefourc" class="collapse" aria-labelledby="headingThree" data-parent="#accordionkimia">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['uas'];?></h1>
                                 </div>
@@ -353,7 +353,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapsefivec" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapsefivec" class="collapse" aria-labelledby="headingThree" data-parent="#accordionkimia">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['praktikum'];?></h1>
                                 </div>
@@ -371,7 +371,7 @@
                         $query = getAllScore($_SESSION['id'],4);
                         if($query!=null) $nilai = mysqli_fetch_assoc($query);
                     ?>
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion" id="accordionmat">
                         <div class="card bg-warning" id="crd">
                             <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
@@ -381,7 +381,7 @@
                             </h2>
                             </div>
 
-                            <div id="collapseOned" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div id="collapseOned" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionmat">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['tugas1'];?></h1>
                                 </div>
@@ -395,7 +395,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapseTwod" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div id="collapseTwod" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionmat">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['tugas2'];?></h1>
                                 </div>
@@ -409,7 +409,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapseThreed" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapseThreed" class="collapse" aria-labelledby="headingThree" data-parent="#accordionmat">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['uts'];?></h1>
                                 </div>
@@ -423,7 +423,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapsefourd" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapsefourd" class="collapse" aria-labelledby="headingThree" data-parent="#accordionmat">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['uas'];?></h1>
                                 </div>
@@ -437,7 +437,7 @@
                                 </button>
                             </h2>
                             </div>
-                            <div id="collapsefived" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div id="collapsefived" class="collapse" aria-labelledby="headingThree" data-parent="#accordionmat">
                                 <div class="card-body text-black">
                                     <h1><?php if($query!=null) echo $nilai['praktikum'];?></h1>
                                 </div>

@@ -69,7 +69,7 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
         <a class="navbar-brand" href="landing.php">e-Rapor</a>
         <div class="container-fluid justify-content-md-end" id="logout">
-            <button class="btn btn-warning" type="button">LOGOUT</button>
+            <button class="btn btn-warning" type="button" onclick="location.href='../admin/logout.php';">LOGOUT</button>
         </div>
         <a class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
             <span> </span>
@@ -82,8 +82,6 @@
             
             </ul>
             <!-- dikanan -->
-            <a class="btn btn-warning my-2 my-sm-0 mx-4" type="button" href="../admin/logout.php">Logout</a>
-        
         </div>
     </nav>
     

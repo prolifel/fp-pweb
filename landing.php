@@ -5,9 +5,13 @@
         $loginFlag = true;
     }
     if($loginFlag == true) {
-        // header("Location: ../landing.php?msg=notlogin");
-        // exit();
-        echo "Already Logged In";
+        if($_SESSION['role']==1){
+            header("Location: ./guru/index.php");
+            exit();
+        } elseif ($_SESSION['role']==2) {
+            header("Location: ./guru/index.php");
+            exit();
+        }
     }
 ?>
 <!DOCTYPE html>

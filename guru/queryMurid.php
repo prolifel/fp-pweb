@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    function getMurid(){
+    function getMurid($idGuru){
         if(isset($_SESSION['id'])){
             $idGuru = $_SESSION['id'];
             include "../koneksi.php";

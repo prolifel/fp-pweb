@@ -99,10 +99,15 @@
             font-size: 1.1em;
             display: block;
             color: black;
+            font-family: Helvetica;
+            letter-spacing: 1px;
         }
         #sidebar ul li a:hover {
             color: #FFF;
-            background: #292b2c;
+            background: #ffbb33;
+            font-size: 25px;
+            font-weight: bold;
+            /* padding: 20px; */
         }
 
         #sidebar ul li.active > a, a[aria-expanded="true"] {

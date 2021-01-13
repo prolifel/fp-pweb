@@ -181,24 +181,21 @@
     <!-- <div class="container-fluid"> -->
         <div class="d-flex justify-content-center">            
             <?php
-                if($loginFlag){
-                    ?>
-                    <a href="./admin/logout.php">LOGOUT</a>
-                    <?php
-                }
-                if(isset($_GET['msg'])){
-                    if($_GET['msg'] == "registed"){
-                        echo "Register Succes <br> Try to Loggin In";
-                    }
-                    if($_GET['msg'] == "notlogin"){
-                        echo "User Not Loged In";
-                    }
-                }
                 include './admin/formLogin.php';
             ?>
-            
         </div>
- 
+        <?php
+            echo "<br><h5 class='text-center'>";
+            if(isset($_GET['msg'])){
+                if($_GET['msg'] == "registed"){
+                    echo "Register Succes <br> Try to Logging In";
+                }
+                if($_GET['msg'] == "notlogin"){
+                    echo "User Not Loged In";
+                }
+            }
+            echo "</h5>";
+        ?>
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>

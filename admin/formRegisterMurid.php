@@ -100,6 +100,9 @@
         .fileContainer [type=file] {
             cursor: pointer;
         }
+        .btn{
+            box-shadow: 1px 2px 6px rgba(255,165,0, 0.4), 2px 6px 7px rgba(255,165,0, 0.3);
+        }
     </style>
     <script>
         // Function to check Whether both passwords 

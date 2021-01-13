@@ -96,7 +96,7 @@
     <div class="container">
         <div class="card text-black bg-warning mb-3" id="iya">
             <div class="card-header">
-                <h5>Hai, *nama murid*</h5>
+                <h5>Hai, Murid</h5>
             </div>
             <div class="card-body">
             <h3 class="card-title">Nilai</h5>

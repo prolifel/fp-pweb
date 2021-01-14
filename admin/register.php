@@ -48,7 +48,7 @@
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                     $fileName = basename( $_FILES["fileToUpload"]["name"]);
                     $file = "../uploads/".$fileName;
-                    $test = passthru("python3 face_detection.py -i $file");
+                    $test = passthru("python ./face_detection.py -i $file");
                     
                     if (!$test) {
                         ?>

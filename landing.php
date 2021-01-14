@@ -188,10 +188,10 @@
             echo "<br><h5 class='text-center'>";
             if(isset($_GET['msg'])){
                 if($_GET['msg'] == "registed"){
-                    echo "Register Succes <br> Try to Logging In";
+                    echo "Register Success <br> Try to Logging In";
                 }
                 if($_GET['msg'] == "notlogin"){
-                    echo "User Not Loged In";
+                    echo "User Not Logged In";
                 }
             }
             echo "</h5>";
